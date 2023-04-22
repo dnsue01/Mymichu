@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <h1 class="titulo" routerLink="">Mymichu</h1>
+
+    <!--  usuario = {
+    correo: "",
+    nombre: "",
+    apellidos:"",
+    contrasenna: "",
+    contrasennaConfirmacion: "",
+    sexo: "",
+    fecha:""
+  }-->
+
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Registro</h2>
+
+        <div class="form-group">
+          <h4 for="name">Nombre</h4>
+          <input type="text" class="form-control" id="nombre" placeholder="nombre" [(ngModel)]="usuario.nombre">
+        </div>
+        
+        <div class="form-group">
+          <h4 for="text">Apellidos</h4>
+          <input type="text" class="form-control" id="Apellidos" placeholder="Apellidos" [(ngModel)]="usuario.apellidos">
+        </div>
+
+        <div class="form-group">
+          <h4 for="text">Nombre Usuario</h4>
+          <input type="text" class="form-control" id="correo" placeholder="correo"[(ngModel)]="usuario.nombreUsuario">
+        </div>
+
+        <div class="form-group">
+          <h4 for="text">Correo</h4>
+          <input type="email" class="form-control" id="correo" placeholder="correo"[(ngModel)]="usuario.correo">
+        </div>
+
+        <br>
+        <div class="form-group radio">
+          <h4 for="text">Elige tu sexo</h4>
+          <div class="radio-item">
+            <input type="radio" id="ritema" name="tipoUsuario" value="1" (change)="radio($event)">
+            <label for="ritema">Masculino</label>
+        </div>
+
+        <div class="radio-item">
+            <input type="radio" id="ritemb" name="tipoUsuario" value="2" (change)="radio($event)">
+            <label for="ritemb">Femenino</label>
+        </div>
+
+        </div>
+        <br>
+        <div class="form-group">
+          <h4 for="password">Fecha de nacimiento</h4>
+          <input type="date" class="form-control" id="fecha" placeholder="Password" [(ngModel)]="usuario.fecha">
+        </div>
+
+
+
+
+
+        <div class="form-group">
+          <h4 for="password">Contraseña</h4>
+          <input type="password" class="form-control" id="password" placeholder="Contraseña" [(ngModel)]="usuario.contrasenna">
+        </div>
+
+
+
+        <div class="form-group">
+          <h4 for="password">Repite la Contraseña</h4>
+          <input type="password" class="form-control" id="passwordRepe" placeholder="Repite la Contraseña" [(ngModel)]="usuario.contrasennaConfirmacion">
+        </div>
+
+        <button class="btn "(click)="Registrarse()">Registro</button>
+
+        <hr>
+
+        <h4>¿Ya tienes usuario? <span routerLink="/inicio">Inicia Sesión</span></h4>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

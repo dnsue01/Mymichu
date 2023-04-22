@@ -1,0 +1,50 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Oswald", sans-serif;
+}
+.card {
+    width: 80vh;
+    margin: auto;
+    height: auto;
+    border: 1px solid;
+    box-shadow: 1vh 0.5vh;
+  }
+
+
+.btn{
+    margin-top: 2vh;
+    background-color:#02ca84 ;
+    color: white;
+   
+}
+.container{
+  
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container-fluid{
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    background-color: #02ca84;
+}
+.titulo{
+    text-align: center;
+    padding-top: 2vh;
+}
+span{
+    color: #02ca84;
+    text-decoration: underline;
+}
+h2{
+    font-size: 1.5rem;
+}
+
+h6{
+    font-size: 0.8rem;
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">mymichu</string>
+    <string name="title_activity_main">mymichu</string>
+    <string name="package_name">com.mymichu.app</string>
+    <string name="custom_url_scheme">com.mymichu.app</string>
+</resources>

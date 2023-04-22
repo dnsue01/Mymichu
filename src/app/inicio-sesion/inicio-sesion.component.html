@@ -1,0 +1,27 @@
+<div class="container-fluid">
+
+    <h1 class="titulo" routerLink="">Mymichu</h1>
+  <div class="container">
+   
+    <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Inicio sesión</h2>
+        
+            <div class="form-group">
+              <h4 for="email">Email o nombre usuario</h4>
+              <input type="email" class="form-control" id="email" placeholder="email o nombre usuario" [(ngModel)]="usuario.correoOnombre">
+            </div>
+            <div class="form-group">
+              <h4 for="password">Password</h4>
+              <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="usuario.contrasenna">
+            </div>
+            <button  class="btn"(click)="iniciarSesion()">Log in</button>
+      
+          <hr>
+
+          <h4>¿No tienes usuario? <span routerLink="/registro">Registrate</span></h4>
+        </div>
+      </div>
+  </div>
+
+</div>

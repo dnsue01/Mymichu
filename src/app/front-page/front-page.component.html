@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" >
+        <h4>Mymichu</h4>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MyMichu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <h5 routerLink="/inicio" class="links">Inicia sesión</h5>
+            </li>
+            <li class="nav-item">
+              <h5 routerLink="/registro"class="links">Registrate</h5>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="header">
+    <div class="inner-header flex">
+      <div class="container-fluid blue">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <figure class="figure">
+              <img src="../assets/imgs/hero-img.png" class="figure-img img-fluid rounded"
+                alt="A generic square placeholder image with rounded corners in a figure." />
+            </figure>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 text">
+            <h1>La nueva forma de entrenar con <span>Mymichu</span></h1>
+            <h2>
+              Entrena en cualquier lugar, en cualquier momento:<br />
+              Mymichu se adapta a ti.
+            </h2>
+            <div class="text-center text-lg-start">
+              <h6 routerLink="/registro" class="btn-get-started scrollto">
+                Registrate
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Waves Container-->
+    <div>
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+          <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+          <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+          <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+        </g>
+      </svg>
+    </div>
+    <!--Waves end-->
+  </div>
+  <!--Header ends-->
+
+  <!--container section-->
+  <div class="container-fluid about">
+    
+
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch"
+            data-aos="fade-right"></div>
+
+          <div
+            class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5"
+            data-aos="fade-left">
+            <h3>Mejora tu técnica!</h3>
+            <p>
+              Con la app de Mymichu , puedes mejorar tu técnica con facilidad.
+              Nuestra plataforma te permite acceder a entrenamientos
+              personalizados y específicos para atletismo así como a una
+              biblioteca de recursos y tutoriales en video de alta calidad.
+            </p>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon"><i class="bi bi-camera-video"></i></div>
+              <h4 class="title">
+                <a href="">Nunca más preguntes como se hacen los ejecicios!</a>
+              </h4>
+              <p class="description">
+                Videos explicaticos de todos los ejecicios necesarios para
+                completar tus entrenamientos
+              </p>
+            </div>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon"><i class="bi bi-trophy"></i></div>
+              <h4 class="title"><a href="">Celebra tus victorias</a></h4>
+              <p class="description">
+                Alcanza el primer puesto y presume tu medalla.
+              </p>
+            </div>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon"><i class="bi bi-globe-americas"></i></div>
+              <h4 class="title">
+                <a href="">El mundo es tu pista de atletismo</a>
+              </h4>
+              <p class="description">
+                Entrena donde quieras con la plataforma de atletismo Mymichu.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+        <!--Details-->
+        <div class="details">
+          <div class="container-fluid">
+
+            <div class="row">
+              <div class=" Details-1 col-xl-5 col-lg-6"></div>
+              <div class="col-xl-7 col-lg-6">
+                <h3> Todo lo que necesitas para tu entrenamiento.</h3>
+                <p class="fst-italic">
+                  La app de MyMichu ofrece una variedad de herramientas y recursos para atletas de todos los niveles.
+                </p>
+                <ul>
+                  <li><i class="bi bi-check"></i> Planifica tu entrenamiento.</li>
+                  <li><i class="bi bi-check"></i> Realiza un seguimiento de tus resultados.</li>
+                  <li><i class="bi bi-check"></i> Iure at voluptas aspernatur dignissimos doloribus repudiandae.</li>
+                  <li><i class="bi bi-check"></i> Conéctate con otros atletas.
+                  </li>
+                </ul>
+                <p>
+                  Únete a grupos de entrenamiento, comparte tu progreso y motivaros mutuamente para alcanzar vuestros
+                  objetivos.
+                </p>
+              </div>
+            </div>
+
+          <div class="row">
+            <div class="col-xl-7 col-lg-6">
+              <h3>Alcanza tus metas.</h3>
+
+              <p class="fst-italic">
+                ¿Quieres mejorar tus habilidades atléticas y alcanzar tus metas?
+                <br>
+                La app de Mymichu es la herramienta
+                perfecta para llevarte al siguiente nivel. Ofrecemos planes de entrenamiento personalizados para una
+                variedad de disciplinas atléticas, desde carreras de velocidad hasta saltos y lanzamientos. Nuestros
+                planes son específicos y adaptados a tus necesidades, para que puedas alcanzar tus objetivos de manera
+                efectiva
+              </p>
+              <br>
+              <p>
+                ¿Quieres competir al más alto nivel?
+                <br>
+                La app de Mymichu te permite realizar un seguimiento de tus
+                resultados y medir tu progreso en carreras y eventos atléticos. Nuestra plataforma también te conecta con
+                otros atletas, para que puedas compartir tus éxitos y aprender de sus experiencias. Ya sea que estés
+                compitiendo a nivel local , regional , nacional o internacional, Mymichu te brinda las herramientas
+                necesarias para
+                alcanzar tus metas atléticas.
+              </p>
+            </div>
+              <div class=" Details-2 col-xl-5 col-lg-6"></div>
+        
+            </div>
+
+
+            <div class="row">
+              <div class=" Details-3 col-xl-5 col-lg-6"></div>
+              <div class="col-xl-7 col-lg-6">
+                <h3> Entrena con Michu y domina el gimnasio.</h3>
+                <p>¿Estás buscando un entrenamiento que te ayude a ser mejor atleta y poner al máximo tu cuerpo?.</p>
+                <ul>
+                  <li><i class="bi bi-check"></i>Planes de entrenamiento personalizados para mejorar tus habilidades como
+                    atleta.</li>
+                  <li><i class="bi bi-check"></i> Ejercicios diseñados específicamente para aumentar tu fuerza, velocidad y
+                    resistencia.</li>
+                  <li><i class="bi bi-check"></i>Tutoriales en video de alta calidad para asegurarte de que estás realizando
+                    los ejercicios correctamente.</li>
+                </ul>
+                <p>
+                  Si eres un atleta que busca mejorar su rendimiento, la app Mimychu es tu mejor amigo.
+                </p>
+                <p>
+                  Ya sea que estés haciendo pesas para ganar fuerza o haciendo series para mejorar tu velocidad, Michu
+                  te dará el impulso necesario para alcanzar tus metas.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <footer id="footer">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+    
+              <div class="col-lg-12 col-md-12">
+                <div class="footer-info">
+                  <h3>Mymichu</h3>
+                  <p class="pb-3"><em>"Yo no corro con mis piernas, corro con mi corazón y mis pulmones"<br>Usain Bolt</em>
+                  </p>
+                  <p>
+                  Puentecillas palencia<br><br>
+                    
+                  </p>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </footer><!-- End Footer -->
+    </section>
+
+    
+ 
+
+
+  </div>
+
+
+
+
+</body>
+
+</html>
