@@ -1,0 +1,104 @@
+body{
+  min-height: 100vh;
+background-color: #02ca84;
+color: white;
+}
+
+.titulo {
+    text-align: center;
+}
+
+.fotoPerfil {
+    text-align: center;
+}
+
+.fotoPerfil img {
+    border-radius: 50%;
+    height: 10vh;
+    width: 10vh;
+    max-height: 100px;
+}
+
+.nombreUsuario h2{
+    text-align: center;
+}
+
+
+
+.detalles{
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.email-address {
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+@media screen and (max-width: 768px) {
+  /* Adjust styles for small screens */
+  .fotoPerfil img {
+    height: 5vh;
+    max-height: 50px;
+  }
+  .email-address {
+    display: block;
+    font-size: 35px;
+    word-wrap: break-word;
+    line-height: 1.5;
+  }
+}
+
+/* For screens smaller than 600px */
+@media only screen and (max-width: 600px) {
+    .titulo {
+      font-size: 1.5rem;
+    }
+    
+    .fotoPerfil img {
+      height: 6vh;
+    }
+    
+    .nombreUsuario h2 {
+      font-size: 1.2rem;
+    }
+    
+    .btn {
+      font-size: 0.8rem;
+      margin-top: 1vh;
+    }
+    .email-address {
+      font-size: 35px;
+      word-wrap: break-word;
+      line-height: 1.5;
+    }
+  }
+  
+  /* For screens larger than 600px */
+  @media only screen and (min-width: 601px) {
+    .titulo {
+      font-size: 2rem;
+    }
+    
+    .fotoPerfil img {
+      height: 10vh;
+    }
+    
+    .nombreUsuario h2 {
+      font-size: 1.5rem;
+    }
+    
+    .btn {
+      font-size: 1rem;
+      margin-top: 2vh;
+    }
+    .email-address {
+      font-size: 35px;
+      word-wrap: break-word;
+      line-height: 1.5;
+    }
+  }
+  

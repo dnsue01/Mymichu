@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <form [formGroup]="myForm" (ngSubmit)="submit()">
+            <div class="form-group">
+                <h1>Cambia tu foto</h1>
+                <br>
+                <input formControlName="file" id="file" type="file" class="form-control"
+                    (change)="onFileChange($event)">
+                <div *ngIf="f['file'].touched && f['file'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['file'].errors && f['file'].errors['required']">Necesitas poner una imagen.</div>
+                </div>
+            </div>
+    
+            <button class="btn btn-xxl rounded-pill mt-5"
+                [disabled]="myForm.invalid" type="submit">Cambiar</button>
+        </form>
+    </div>
+
+</body>
+</html>

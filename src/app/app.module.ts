@@ -10,12 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import {MatIconModule} from '@angular/material/icon';
-import { PruebaComponent } from './prueba/prueba.component';
 
 
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { PanelControlComponent } from './panel-control/panel-control.component';
+import { AjustesComponent } from './ajustes/ajustes.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,9 @@ import { PanelControlComponent } from './panel-control/panel-control.component';
     FrontPageComponent,
     RegistroSesionComponent,
     PaginaPrincipalComponent,
-    PruebaComponent,
-    PanelControlComponent
+    PanelControlComponent,
+    AjustesComponent,
+    PerfilComponent
 
   ],
   imports: [
@@ -35,7 +38,8 @@ import { PanelControlComponent } from './panel-control/panel-control.component';
     MatToolbarModule,
     MatIconModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

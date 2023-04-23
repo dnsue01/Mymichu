@@ -81,6 +81,10 @@
         <div class="form-group">
           <h4 for="password">Repite la Contraseña</h4>
           <input type="password" class="form-control" id="passwordRepe" placeholder="Repite la Contraseña" [(ngModel)]="usuario.contrasennaConfirmacion">
+          <p id="passwordHelpInline" >
+            La contraseña por lo menos tiene que tener 5 caracteres ,una letra mayúscula , una minúscula y un signo
+            especial. Un ejemplo: Sinestesia1!
+        </p>
         </div>
 
         <button class="btn "(click)="Registrarse()">Registro</button>

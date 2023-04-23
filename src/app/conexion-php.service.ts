@@ -32,4 +32,17 @@ export class ConexionPhpService {
   recuperarId(usuario: any) {
     return this.http.post(`${this.url}recuperarId.php`, JSON.stringify(usuario));
   }
+
+RecuperarFoto(usuario: any) {
+  return this.http.post(`${this.url}recuperarFoto.php`, JSON.stringify(usuario));
+}
+recuperarUsuario(id: any) {
+  return this.http.post(`${this.url}recuperarUsuario.php`, JSON.stringify(id));
+}
+ActualizarFoto(idYFoto: any) {
+  return this.http.post(`${this.url}ActualizarFoto.php`, JSON.stringify(idYFoto));
+}
+BorrarFoto(usuario: any) {
+  return this.http.post(`${this.url}borrarFoto.php`, JSON.stringify(usuario));
+}
 }

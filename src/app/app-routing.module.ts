@@ -4,8 +4,10 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { FrontPageComponent } from './front-page/front-page.component';
 import { RegistroSesionComponent } from './registro-sesion/registro-sesion.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
-import { PruebaComponent } from './prueba/prueba.component';
+
 import { PanelControlComponent } from './panel-control/panel-control.component';
+import { AjustesComponent } from './ajustes/ajustes.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes =
   [
@@ -17,9 +19,10 @@ const routes: Routes =
     {
       path: "principal/:id", component: PaginaPrincipalComponent,
       children: [
-        {
-          path: 'prueba', component: PruebaComponent
-        },]
+       { path: "", component: AjustesComponent, pathMatch: "full" },
+       { path: 'ajustes', component: AjustesComponent },
+       { path: 'perfil', component: PerfilComponent },
+      ]
     },
 
 
