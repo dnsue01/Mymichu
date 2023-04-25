@@ -45,4 +45,18 @@ ActualizarFoto(idYFoto: any) {
 BorrarFoto(usuario: any) {
   return this.http.post(`${this.url}borrarFoto.php`, JSON.stringify(usuario));
 }
+ComprobarCorreo(correo: any) {
+  return this.http.post(`${this.url}comprobarCorreo.php`, JSON.stringify(correo));
+}
+
+actualizarCorreo(usuario: any) {
+  return this.http.post(`${this.url}actualizarCorreo.php`, JSON.stringify(usuario));
+}
+
+comprobarContrasenna(usuario: any) {
+  return this.http.post(`${this.url}comprobarContrasenna.php`, JSON.stringify(usuario));
+}
+actualizarContrasenna(usuario: any) {
+  return this.http.post(`${this.url}actualizarContrasenna.php`, JSON.stringify(usuario));
+}
 }

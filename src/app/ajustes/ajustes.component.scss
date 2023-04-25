@@ -1,0 +1,27 @@
+.centro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+body {
+    min-height: 100vh;
+    background-color: #02ca84;
+    color: white;
+  }
+
+  .card{
+    width: 70%;
+    color: rgb(128, 128, 128);
+  }
+  
+  .titulo{
+    text-align: center;
+  }
+  .btn{
+    background-color: #02ca84;
+    color: rgb(0, 0, 0);
+    width: 10%;
+    margin-bottom: 1%;
+    border: 1px solid black;
+  }

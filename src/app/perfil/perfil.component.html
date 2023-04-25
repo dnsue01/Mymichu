@@ -10,61 +10,92 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 titulo">
-                <h2>Perfil</h2>
-            </div>
+
+
+        <div class="col-12 titulo">
+            <h2>Perfil</h2>
         </div>
-
+  <div class="centro">
+<div class="card">
+  
         <div class="row">
-            <div class="col-12 fotoPerfil">
-                <img *ngIf="usuario.foto == ''; else fotoBD" src="assets/defaultProfile.png">
+            <div class="centro">
+                <div class="col-12 fotoPerfil">
+                    <img *ngIf="usuario.foto == ''; else fotoBD" src="assets/defaultProfile.png">
 
-                <ng-template #fotoBD>
-                    <img src="{{urlFotos}}{{usuario.foto}}">
-                </ng-template>
+                    <ng-template #fotoBD>
+                        <img src="{{urlFotos}}{{usuario.foto}}">
+                    </ng-template>
+                </div>
             </div>
-        </div>
 
+        </div>
         <div class="row">
             <div class="col-12 titulo">
                 <h2>{{usuario.nombreUsuario}}</h2>
             </div>
         </div>
 
-      <div class="container">
-        <hr>
-  
-        <div class="row">
-            <div class="col-6 titulo detalles"><h3>Nombre</h3></div>
-            <div class="col-6 titulo detalles"><h3>{{usuario.nombre}}</h3></div>
-        </div>
-  
-        <div class="row">
-            <div class="col-6 titulo detalles"><h3>Correo</h3></div>
-            <div class="col-6 titulo email-address "><h3>{{usuario.correo}}</h3></div>
-        </div>
-          
-        <div class="row">
-            <div class="col-6 titulo detalles"><h3>Apellidos</h3></div>
-            <div class="col-6 titulo detalles"><h3>{{usuario.apellidos}}</h3></div>
-        </div>
-          
-        <div class="row">
-            <div class="col-6 titulo detalles"><h3>Categoria</h3></div>
-            <div class="col-6 titulo detalles"><h3>{{usuario.categoria}}</h3></div>
-        </div>
-          
-        <div class="row">
-            <div class="col-6 titulo detalles"><h3>Sexo</h3></div>
-            <div class="col-6 titulo detalles"><h3>{{usuario.sexo}}</h3></div>
-        </div>
-        <div class="row">
-            <div class="col-6 titulo detalles"><h3>Fecha nacimiento</h3></div>
-            <div class="col-6 titulo detalles"><h3>{{usuario.fecha}}</h3></div>
-        </div>
+        <div class="container">
+            <hr>
 
-      </div>
+            <div class="row">
+                <div class="col-6 titulo detalles">
+                    <h3>Nombre</h3>
+                </div>
+                <div class="col-6 titulo detalles">
+                    <h3>{{usuario.nombre}}</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 titulo detalles">
+                    <h3>Correo</h3>
+                </div>
+                <div class="col-6 titulo email-address ">
+                    <h3>{{usuario.correo}}</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 titulo detalles">
+                    <h3>Apellidos</h3>
+                </div>
+                <div class="col-6 titulo detalles">
+                    <h3>{{usuario.apellidos}}</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 titulo detalles">
+                    <h3>Categoria</h3>
+                </div>
+                <div class="col-6 titulo detalles">
+                    <h3>{{usuario.categoria}}</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 titulo detalles">
+                    <h3>Sexo</h3>
+                </div>
+                <div class="col-6 titulo detalles">
+                    <h3>{{usuario.sexo}}</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 titulo detalles">
+                    <h3>Fecha nacimiento</h3>
+                </div>
+                <div class="col-6 titulo detalles">
+                    <h3>{{usuario.fecha}}</h3>
+                </div>
+            </div>
+     
+        </div>
+  
+    </div>
+</div>
     </div>
 </body>
 

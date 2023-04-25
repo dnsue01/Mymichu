@@ -24,7 +24,10 @@ export class AjustesComponent {
     fecha: "",
     id: "",
     nombreUsuario: "",
-    foto: ""
+    foto: "",
+    nuevoCorreo: "",
+    contrasenna: "",
+    contrasennaConfirmacion: ""
   }
   //paso el id del usuario y guado la extension y el nombre del archivo
   idYFoto = {
@@ -42,6 +45,7 @@ export class AjustesComponent {
     });
 
     this.recuperarFoto();
+    this.recuperarUsuario();
   }
 
 
@@ -58,7 +62,7 @@ export class AjustesComponent {
 
     if (file) {
       if (this.usuario.foto != "") {
-        this.BorarFoto() 
+        this.BorarFoto()
       }
       //nombre del archivo
       this.nombreArchivo = file.name;
@@ -151,11 +155,158 @@ export class AjustesComponent {
 
   BorarFoto() {
 
-    this.ConexionPhpService.BorrarFoto(this.usuario).subscribe((datos: any) => {
+    this.ConexionPhpService.BorrarFoto(this.usuario).subscribe((datos: any) => { })
+  }
+
+  //recuperar el usuario de la bd
+  recuperarUsuario() {
+
+    this.ConexionPhpService.recuperarUsuario(this.usuario.id).subscribe((datos: any) => {
+
+      this.usuario.nombre = datos[1];
+      this.usuario.apellidos = datos[2];
+      this.usuario.sexo = datos[3] == 1 ? "Masculino" : "Femenino";
+      this.usuario.fecha = datos[4];
+      this.usuario.nombreUsuario = datos[6];
+      this.usuario.correo = datos[7];
+    });
+  }
+
+
+  ComprobarCorreo() {
+
+    this.ConexionPhpService.ComprobarCorreo(this.usuario.nuevoCorreo).subscribe((datos: any) => {
       if (datos['resultado'] == 'OK') {
-        console.log("borrar");
+
+        if (datos['mensaje']) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Este correo ya esta en uso',
+          })
+          return;
+        }
+        this.actualizarCorreo();
 
       }
-    })
+    });
+
+
+
   }
+
+  actualizarCorreo() {
+    this.ConexionPhpService.actualizarCorreo(this.usuario).subscribe((datos: any) => {
+      if (datos['resultado'] == 'OK') {
+        Swal.fire({
+          icon: 'success',
+          title: 'Correo actualizado correctamente',
+          showConfirmButton: false,
+          timer: 700
+        })
+        this.usuario.correo = this.usuario.nuevoCorreo
+        this.usuario.nuevoCorreo = ""
+      }
+    });
+  }
+
+  cambiarCorreo() {
+    if (!this.usuario.nuevoCorreo) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El campo del nuevo correo esta vacio',
+      })
+      return;
+    }
+    if (this.usuario.nuevoCorreo === this.usuario.correo) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No puedes poner el mismo correo',
+      })
+      return;
+    }
+
+    if (!this.validarcorreo(this.usuario.nuevoCorreo)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El correo tiene que tener por lo menos un @ y . Un ejemplo:  sinestesia@gmail.es',
+      });
+      return;
+    }
+    this.ComprobarCorreo()
+  }
+  validarcorreo(correo: any) {
+    //Cualquier string un @ cualquier string un . y finalmente cualquier string
+    var re = /\S+@\S+\.\S+/;
+    return re.test(correo);
+  }
+
+  comprobarContrasenna() {
+    if (!this.usuario.contrasenna) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'La contraseña no puede estar vacia',
+      });
+      return;
+    }
+    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])(?=.*[^\dA-Za-z]).{5,}$/.test(this.usuario.contrasenna)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'La contraseña no cumple con nuestras normas por lo menos tiene que tener 5 caracteres ,una letra mayuscula , una minuscula y un signo especial. Un ejemplo: Sinestesia1!',
+      });
+      return;
+    }
+    if (this.usuario.contrasenna !== this.usuario.contrasennaConfirmacion) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Las contraseñas no son iguales ',
+      });
+      return;
+    }
+    this.comprobarContrasennaBD();
+
+  }
+
+
+  comprobarContrasennaBD() {
+    this.ConexionPhpService.comprobarContrasenna(this.usuario).subscribe((datos: any) => {
+      if (datos['resultado'] == 'OK') {
+        if (datos["mesaje"]) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se pudo cambiar por que la contraseña es la misma',
+          });
+          return;
+        }
+        this.actualizarContrasenna()
+
+      }
+    });
+  }
+
+  actualizarContrasenna(){
+
+      this.ConexionPhpService.actualizarContrasenna(this.usuario).subscribe((datos: any) => {
+        if (datos['resultado'] == 'OK') {
+          Swal.fire({
+            icon: 'success',
+            title: 'La contraseña se  actualizado correctamente',
+            showConfirmButton: false,
+            timer: 700
+          })
+          this.usuario.contrasenna = ""
+          this.usuario.contrasennaConfirmacion = ""
+        }
+      });
+    }
+  
 }
+
+
