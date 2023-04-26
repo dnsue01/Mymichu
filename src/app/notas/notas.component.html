@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 class="titulo">Notas</h1>
+
+        <div class="row">
+            <div class="container">
+
+                <div class="col-6 crearCarta">
+               
+                        <div class="card">
+                            <h1 class="tituloCarta">Escribe el contenido de tu nota</h1>
+                            <div class="container mensaje">
+                                <textarea name="message" rows="10" cols="30" maxlength="1000" [(ngModel)]="nota.texto"></textarea>
+                            </div>
+                           <div class="row botonCentro">
+                            <button class="btn btn-xxl rounded-pill mt-5" type="submit" (click)="subirNota()" >Crear</button>
+                           </div>
+                          
+                        </div>
+          
+                </div>
+                <div class="col-6"></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

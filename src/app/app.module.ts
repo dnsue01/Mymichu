@@ -18,6 +18,7 @@ import { PanelControlComponent } from './panel-control/panel-control.component';
 import { AjustesComponent } from './ajustes/ajustes.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import {  ReactiveFormsModule } from '@angular/forms';
+import { NotasComponent } from './notas/notas.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {  ReactiveFormsModule } from '@angular/forms';
     PaginaPrincipalComponent,
     PanelControlComponent,
     AjustesComponent,
-    PerfilComponent
+    PerfilComponent,
+    NotasComponent
 
   ],
   imports: [

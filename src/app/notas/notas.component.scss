@@ -1,0 +1,62 @@
+body {
+    min-height: 100vh;
+    background-color: #02ca84;
+}
+
+.titulo {
+    text-align: center;
+    color: white;
+}
+
+.centro {}
+
+.crearCarta {
+
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 70%;
+    height: 40vh;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.btn {
+    background-color: #02ca84;
+    color: rgb(0, 0, 0);
+    width: 80%;
+    margin-bottom: 1%;
+    border: 1px solid black;
+
+}
+
+.mensaje {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tituloCarta {
+    text-align: center;
+    color: black;
+    margin-top: 2%;
+}
+
+textarea {
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 4%;
+    text-align: center;
+
+}
+
+.botonCentro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

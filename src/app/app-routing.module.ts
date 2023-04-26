@@ -8,6 +8,7 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { PanelControlComponent } from './panel-control/panel-control.component';
 import { AjustesComponent } from './ajustes/ajustes.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { NotasComponent } from './notas/notas.component';
 
 const routes: Routes =
   [
@@ -22,6 +23,7 @@ const routes: Routes =
        { path: "", component: AjustesComponent, pathMatch: "full" },
        { path: 'ajustes', component: AjustesComponent },
        { path: 'perfil', component: PerfilComponent },
+       { path: 'notas', component: NotasComponent },
       ]
     },
 

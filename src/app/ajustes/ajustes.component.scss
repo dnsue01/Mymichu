@@ -13,6 +13,7 @@ body {
   .card{
     width: 70%;
     color: rgb(128, 128, 128);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   }
   
   .titulo{
@@ -21,7 +22,8 @@ body {
   .btn{
     background-color: #02ca84;
     color: rgb(0, 0, 0);
-    width: 10%;
+    width: 20%;
     margin-bottom: 1%;
     border: 1px solid black;
+   
   }

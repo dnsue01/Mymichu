@@ -22,7 +22,7 @@ Videos
 </button>
 
 <button mat-flat-button
-  routerLink="/top-tracks"
+  (click)="notas(usuario['id'])"
   [class.isActive]="activeButton === 'notas'"
   [class.isInactive]="activeButton !== 'notas'"
   (click)="activeButton = 'notas'">

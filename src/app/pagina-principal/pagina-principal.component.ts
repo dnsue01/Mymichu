@@ -45,7 +45,9 @@ export class PaginaPrincipalComponent {
   ajustes(id: string) {
     this.router.navigate(['ajustes'], { relativeTo: this.route, queryParams: { id } });
   }
-
+  notas(id: string) {
+    this.router.navigate(['notas'], { relativeTo: this.route, queryParams: { id } });
+  }
 
   //recogo la foto de la bd
   recuperarFoto() {

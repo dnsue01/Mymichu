@@ -59,4 +59,7 @@ comprobarContrasenna(usuario: any) {
 actualizarContrasenna(usuario: any) {
   return this.http.post(`${this.url}actualizarContrasenna.php`, JSON.stringify(usuario));
 }
+insertarNota(nota: any) {
+  return this.http.post(`${this.url}insertarNota.php`, JSON.stringify(nota));
+}
 }
