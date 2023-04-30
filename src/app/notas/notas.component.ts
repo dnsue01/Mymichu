@@ -139,6 +139,15 @@ export class NotasComponent {
       }
     });
   }
+
+  modal(texto:any){
+    Swal.fire({
+      icon: 'info',
+      title: texto,
+      showConfirmButton: true,
+
+    })
+  }
 }
 
 

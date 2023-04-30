@@ -36,12 +36,11 @@
                     <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8  scroll">
                    <div class="row">
                     <div class="grid-container">
-                    <div class="card pequeña grid-item" *ngFor="let nota of notas">
-                        <div class="centro">
+                    <div class="card pequeña grid-item" *ngFor="let nota of notas" >
+                        <div class="centro" (click)="modal(nota.texto)">
                             <div class="scroll_texto">
                                 <h1 class="long-text">{{nota.texto}}</h1>
                             </div>
-                            
                         </div>
                      <div class="centro">
                         <button class="btn btn-xxl rounded-pill mt-5 red" type="submit" (click)="borrarNota(nota.id)">Borrar</button>

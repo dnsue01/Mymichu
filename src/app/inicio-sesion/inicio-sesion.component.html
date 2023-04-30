@@ -15,7 +15,7 @@
               <h4 for="password">Password</h4>
               <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="usuario.contrasenna">
             </div>
-            <button  class="btn"(click)="iniciarSesion()">Log in</button>
+            <button  class="btn"(click)="iniciarSesion()"  (keyup.enter)="iniciarSesion()" >Log in</button>
       
           <hr>
 

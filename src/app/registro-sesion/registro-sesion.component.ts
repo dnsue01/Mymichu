@@ -129,7 +129,10 @@ export class RegistroSesionComponent {
 
   }
 
-
+  intro(){
+  console.log("hola");
+  
+  }
 
   //funciones
   comprobacion() {

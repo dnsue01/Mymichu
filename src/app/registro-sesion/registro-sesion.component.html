@@ -13,16 +13,6 @@
 
     <h1 class="titulo" routerLink="">Mymichu</h1>
 
-    <!--  usuario = {
-    correo: "",
-    nombre: "",
-    apellidos:"",
-    contrasenna: "",
-    contrasennaConfirmacion: "",
-    sexo: "",
-    fecha:""
-  }-->
-
     <div class="card">
       <div class="card-body">
         <h2 class="card-title">Registro</h2>
@@ -39,7 +29,7 @@
 
         <div class="form-group">
           <h4 for="text">Nombre Usuario</h4>
-          <input type="text" class="form-control" id="correo" placeholder="correo"[(ngModel)]="usuario.nombreUsuario">
+          <input type="text" class="form-control" id="nombreU" placeholder="correo"[(ngModel)]="usuario.nombreUsuario">
         </div>
 
         <div class="form-group">
@@ -87,7 +77,7 @@
         </p>
         </div>
 
-        <button class="btn "(click)="Registrarse()">Registro</button>
+        <button class="btn "(click)="Registrarse()" (keyup.enter)="Registrarse()">Registro</button>
 
         <hr>
 

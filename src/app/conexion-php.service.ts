@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ConexionPhpService {
 
-  url ="http://localhost/michu/"
+  url = "http://localhost/michu/"
 
   constructor(private http: HttpClient) { }
 
@@ -33,43 +33,53 @@ export class ConexionPhpService {
     return this.http.post(`${this.url}recuperarId.php`, JSON.stringify(usuario));
   }
 
-RecuperarFoto(usuario: any) {
-  return this.http.post(`${this.url}recuperarFoto.php`, JSON.stringify(usuario));
-}
-recuperarUsuario(id: any) {
-  return this.http.post(`${this.url}recuperarUsuario.php`, JSON.stringify(id));
-}
-ActualizarFoto(idYFoto: any) {
-  return this.http.post(`${this.url}ActualizarFoto.php`, JSON.stringify(idYFoto));
-}
-BorrarFoto(usuario: any) {
-  return this.http.post(`${this.url}borrarFoto.php`, JSON.stringify(usuario));
-}
-ComprobarCorreo(correo: any) {
-  return this.http.post(`${this.url}comprobarCorreo.php`, JSON.stringify(correo));
-}
+  RecuperarFoto(usuario: any) {
+    return this.http.post(`${this.url}recuperarFoto.php`, JSON.stringify(usuario));
+  }
+  recuperarUsuario(id: any) {
+    return this.http.post(`${this.url}recuperarUsuario.php`, JSON.stringify(id));
+  }
+  ActualizarFoto(idYFoto: any) {
+    return this.http.post(`${this.url}ActualizarFoto.php`, JSON.stringify(idYFoto));
+  }
+  BorrarFoto(usuario: any) {
+    return this.http.post(`${this.url}borrarFoto.php`, JSON.stringify(usuario));
+  }
+  ComprobarCorreo(correo: any) {
+    return this.http.post(`${this.url}comprobarCorreo.php`, JSON.stringify(correo));
+  }
 
-actualizarCorreo(usuario: any) {
-  return this.http.post(`${this.url}actualizarCorreo.php`, JSON.stringify(usuario));
-}
+  actualizarCorreo(usuario: any) {
+    return this.http.post(`${this.url}actualizarCorreo.php`, JSON.stringify(usuario));
+  }
 
-comprobarContrasenna(usuario: any) {
-  return this.http.post(`${this.url}comprobarContrasenna.php`, JSON.stringify(usuario));
-}
-actualizarContrasenna(usuario: any) {
-  return this.http.post(`${this.url}actualizarContrasenna.php`, JSON.stringify(usuario));
-}
-insertarNota(nota: any) {
-  return this.http.post(`${this.url}insertarNota.php`, JSON.stringify(nota));
-}
-recuperarNotas(id: any) {
-  return this.http.post(`${this.url}recuperarNotas.php`, JSON.stringify(id));
-}
-borrarNota(id: any) {
-  return this.http.post(`${this.url}borrarNota.php`, JSON.stringify(id));
-}
+  comprobarContrasenna(usuario: any) {
+    return this.http.post(`${this.url}comprobarContrasenna.php`, JSON.stringify(usuario));
+  }
+  actualizarContrasenna(usuario: any) {
+    return this.http.post(`${this.url}actualizarContrasenna.php`, JSON.stringify(usuario));
+  }
+  insertarNota(nota: any) {
+    return this.http.post(`${this.url}insertarNota.php`, JSON.stringify(nota));
+  }
+  recuperarNotas(id: any) {
+    return this.http.post(`${this.url}recuperarNotas.php`, JSON.stringify(id));
+  }
+  borrarNota(id: any) {
+    return this.http.post(`${this.url}borrarNota.php`, JSON.stringify(id));
+  }
 
-recuperarPruebas() {
-  return this.http.get(`${this.url}recuperarPruebas.php`);
-}
+  recuperarPruebas() {
+    return this.http.get(`${this.url}recuperarPruebas.php`);
+  }
+  insertarMarca(marca: any) {
+    return this.http.post(`${this.url}insertarMarca.php`, JSON.stringify(marca));
+  }
+
+  recogerDistintasPruebasUsuario(id: any) {
+    return this.http.post(`${this.url}recogerDistintasPruebasUsuario.php`, JSON.stringify(id));
+  }
+  recogerMarcasPorPruebaAtleta(pruebaYAtleta:any){
+    return this.http.post(`${this.url}recogerMarcasPorPruebaAtleta.php`, JSON.stringify(pruebaYAtleta));
+  }
 }

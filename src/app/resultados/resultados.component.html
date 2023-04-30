@@ -47,18 +47,25 @@
                         </div>
 
                     </div>
-                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8  scroll">
-                        <div class="row">
-                            <div class="grid-container">
-                                <div class="card pequeña grid-item">
-                                  
-
-                                
-                             
-                                </div>
-                            </div>
-
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8  ">
+                        <div class="row centro selectorPrueba">
+                        <select name="" id="" (change)="seleccionarPruebaDetalle($event) "class="form-select selector marca ">
+                            <option value="">Elige tu prueba para ver</option>
+                            <option *ngFor="let prueba of pruebasAtleta" value="{{prueba.nombre}}">{{prueba.nombre}}
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row centro">
+                        <div class="card pequeña ">
+                            <canvas #myChart ></canvas>
                         </div>
+                    </div>
+                                
+                            
+                        
+
+                  
                     </div>
                 </div>
 
