@@ -163,34 +163,36 @@ export class ResultadosComponent implements OnInit {
     });
   }
 
-  creaChart(prueba: any, fechas: any, marcas: any) {
-    const data = {
-      labels: fechas,
-      datasets: [
-        {
+  creaChart(prueba: string, fechas: any[], marcas: any[]) {
+    const chartId = `0`; // generate unique ID for the chart
+    const existingChart = this.chartData[chartId];
+    if (existingChart) {
+      existingChart.destroy(); // destroy previous chart if it exists
+    }
+    const ctx = this.myChart.nativeElement.getContext('2d');
+    const config: ChartConfiguration = {
+      type: 'line',
+      data: {
+        labels: fechas,
+        datasets: [{
           label: prueba,
           data: marcas,
           fill: false,
-          borderColor: 'rgb(2, 202, 132)',
-          tension: 0.1
-        }
-      ]
+          borderColor: '#4bc0c0'
+        }]
+      }
     };
-    const config: ChartConfiguration<'line'> = {
-      type: 'line',
-      data: data
-    };
-    const ctx = this.myChart.nativeElement.getContext('2d');
-    this.chartData[prueba] = new Chart(ctx, config);
+    this.chartData[chartId] = new Chart(ctx, config);
   }
+  
   updateChart(prueba: any, fechas: any, marcas: any) {
-    const chart = this.chartData[prueba];
-    if (chart) {
-      chart.data.labels = fechas;
-      chart.data.datasets[0].data = marcas;
-      chart.update();
-    } else {
+    const chartId = `chart-${prueba}`; // generate unique ID for the chart
+    if (!this.chartData[chartId]) {
       this.creaChart(prueba, fechas, marcas);
+    } else {
+      this.chartData[chartId].data.labels = fechas;
+      this.chartData[chartId].data.datasets[0].data = marcas;
+      this.chartData[chartId].update();
     }
   }
   
