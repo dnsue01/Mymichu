@@ -14,24 +14,46 @@
 
         <div class="row">
             <div class="container">
+                <div class="row">
 
-                <div class="col-6 crearCarta">
-               
+
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 crearCarta">
+
                         <div class="card">
                             <h1 class="tituloCarta">Escribe el contenido de tu nota</h1>
                             <div class="container mensaje">
-                                <textarea name="message" rows="10" cols="30" maxlength="1000" [(ngModel)]="nota.texto"></textarea>
+                                <textarea name="message" rows="2" cols="30" maxlength="1000"
+                                    [(ngModel)]="nota.texto"></textarea>
                             </div>
-                           <div class="row botonCentro">
-                            <button class="btn btn-xxl rounded-pill mt-5" type="submit" (click)="subirNota()" >Crear</button>
-                           </div>
-                          
-                        </div>
-          
-                </div>
-                <div class="col-6"></div>
-            </div>
+                            <div class="row boton centro">
+                                <button class="btn btn-xxl rounded-pill mt-5" type="submit"
+                                    (click)="subirNota()">Crear</button>
+                            </div>
 
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8  scroll">
+                   <div class="row">
+                    <div class="grid-container">
+                    <div class="card pequeña grid-item" *ngFor="let nota of notas">
+                        <div class="centro">
+                            <div class="scroll_texto">
+                                <h1 class="long-text">{{nota.texto}}</h1>
+                            </div>
+                            
+                        </div>
+                     <div class="centro">
+                        <button class="btn btn-xxl rounded-pill mt-5 red" type="submit" (click)="borrarNota(nota.id)">Borrar</button>
+                     </div>
+                    </div>
+                   </div>
+              
+                    </div>
+                </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </body>

@@ -23,12 +23,14 @@ export class NotasComponent {
   }
 
   nota = {
+    id:"",
     id_usuario: "",
     texto: ""
   }
+  
 
-    //usuarios
-    notas: any;
+  //notas
+  notas: any;
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -36,6 +38,7 @@ export class NotasComponent {
     });
 
     this.recuperarUsuario();
+    this.RecogerNotasUsuario();
   }
 
 
@@ -66,7 +69,7 @@ export class NotasComponent {
       return;
     }
     this.nota.id_usuario = this.usuario.id;
-    this.insertarNota()
+    this.insertarNota();
 
   }
 
@@ -81,7 +84,61 @@ export class NotasComponent {
           showConfirmButton: false,
           timer: 700
         })
+        this.RecogerNotasUsuario();
+      }
+    });
+  }
+
+  RecogerNotasUsuario() {
+
+    this.ConexionPhpService.recuperarNotas(this.usuario.id).subscribe((datos: any) => {
+      this.notas = datos;
+    });
+  }
+
+
+  borrarNota(id: any) {
+
+    Swal.fire({
+
+      title: '¿Estas seguro?',
+      text: "vas a borrar la nota!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, quiero borrarla!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.nota.id = id;
+        this.nota.id_usuario = this.usuario.id;
+        this.borrarNotaBd()
+      } else if (
+        //si le da a cancelar
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire(
+          'Cancelado!',
+          'Tu nota no se ha elimino!',
+          'info'
+        )
+      }
+    })
+  }
+  borrarNotaBd(){
+    this.ConexionPhpService.borrarNota(this.nota).subscribe((datos: any) => {
+      if (datos["resultado"] == "OK") {
+        Swal.fire({
+          icon: 'success',
+          title: 'Nota borrada correctamente',
+          showConfirmButton: false,
+          timer: 700
+        })
+        this.RecogerNotasUsuario()
       }
     });
   }
 }
+
+

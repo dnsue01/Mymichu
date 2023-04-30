@@ -62,4 +62,11 @@ actualizarContrasenna(usuario: any) {
 insertarNota(nota: any) {
   return this.http.post(`${this.url}insertarNota.php`, JSON.stringify(nota));
 }
+recuperarNotas(id: any) {
+  return this.http.post(`${this.url}recuperarNotas.php`, JSON.stringify(id));
+}
+borrarNota(id: any) {
+  return this.http.post(`${this.url}borrarNota.php`, JSON.stringify(id));
+}
+
 }
