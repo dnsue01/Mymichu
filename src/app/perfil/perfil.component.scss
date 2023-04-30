@@ -19,9 +19,9 @@ body {
 
 .fotoPerfil img {
   border-radius: 50%;
-  height: 10vh;
-  width: 10vh;
-  max-height: 100px;
+
+
+
 }
 .centro{
   display: flex;
@@ -66,6 +66,10 @@ body {
     word-wrap: break-word;
     line-height: 1.5;
   }
+  .card{
+    width: 95%;
+    
+  }
 }
 
 /* For screens smaller than 600px */
@@ -92,6 +96,10 @@ body {
     word-wrap: break-word;
     line-height: 1.5;
   }
+  .card{
+    width: 95%;
+    
+  }
 }
 
 /* For screens larger than 600px */
@@ -117,5 +125,9 @@ body {
     font-size: 35px;
     word-wrap: break-word;
     line-height: 1.5;
+  }
+  .card{
+    width: 95%;
+    
   }
 }

@@ -49,6 +49,10 @@ export class PaginaPrincipalComponent {
     this.router.navigate(['notas'], { relativeTo: this.route, queryParams: { id } });
   }
 
+  resultados(id: string) {
+    this.router.navigate(['resultados'], { relativeTo: this.route, queryParams: { id } });
+  }
+
   //recogo la foto de la bd
   recuperarFoto() {
     this.ConexionPhpService.RecuperarFoto(this.usuario.id).subscribe((datos: any) => {

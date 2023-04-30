@@ -9,6 +9,7 @@ import { PanelControlComponent } from './panel-control/panel-control.component';
 import { AjustesComponent } from './ajustes/ajustes.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { NotasComponent } from './notas/notas.component';
+import { ResultadosComponent } from './resultados/resultados.component';
 
 const routes: Routes =
   [
@@ -16,7 +17,7 @@ const routes: Routes =
     { path: "inicio", component: InicioSesionComponent },
     { path: "registro", component: RegistroSesionComponent },
 
-    //entrenadores y atletas
+    //atletas
     {
       path: "principal/:id", component: PaginaPrincipalComponent,
       children: [
@@ -24,6 +25,7 @@ const routes: Routes =
        { path: 'ajustes', component: AjustesComponent },
        { path: 'perfil', component: PerfilComponent },
        { path: 'notas', component: NotasComponent },
+       { path: 'resultados', component: ResultadosComponent },
       ]
     },
 

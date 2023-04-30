@@ -1,4 +1,13 @@
 body {
+    min-height: 100vh;
+    background-color: #02ca84;
+    color: white;
+  }
+
+  .titulo{
+    text-align: center;
+  }
+  body {
     max-height: 110vh;
     background-color: #02ca84;
 }
@@ -32,9 +41,6 @@ body {
 
 .mensaje {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .tituloCarta {
@@ -43,11 +49,8 @@ body {
     margin-top: 2%;
 }
 
-textarea {
-    width: 80%;
-    border: 1px solid black;
-    border-radius: 4%;
-    text-align: center;
+.marca{
+    width: 50%;
 }
 
 .botonCentro {

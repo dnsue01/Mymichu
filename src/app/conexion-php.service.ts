@@ -69,4 +69,7 @@ borrarNota(id: any) {
   return this.http.post(`${this.url}borrarNota.php`, JSON.stringify(id));
 }
 
+recuperarPruebas() {
+  return this.http.get(`${this.url}recuperarPruebas.php`);
+}
 }

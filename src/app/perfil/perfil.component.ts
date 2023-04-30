@@ -66,8 +66,6 @@ export class PerfilComponent {
   }
 
 
-  ajustes(id:string) {
-    this.router.navigate(['ajustes'], { relativeTo: this.route, queryParams: { id }  });
-  }
+
 }
 

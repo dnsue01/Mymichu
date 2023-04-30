@@ -12,14 +12,7 @@
 Noticias
 </button>
 
-<button mat-flat-button
-  routerLink="/top-tracks"
-  [class.isActive]="activeButton === 'videos'"
-  [class.isInactive]="activeButton !== 'videos'"
-  (click)="activeButton = 'videos'">
-<mat-icon class="material-icons color_blue">ondemand_video</mat-icon>
-Videos
-</button>
+
 
 <button mat-flat-button
   (click)="notas(usuario['id'])"
@@ -28,6 +21,16 @@ Videos
   (click)="activeButton = 'notas'">
 <mat-icon class="material-icons color_blue">note_add</mat-icon>
 Notas
+</button>
+
+
+<button mat-flat-button
+  (click)="resultados(usuario['id'])"
+  [class.isActive]="activeButton === 'resultados'"
+  [class.isInactive]="activeButton !== 'resultados'"
+  (click)="activeButton = 'resultados'">
+<mat-icon class="material-icons color_blue">poll</mat-icon>
+Resultados
 </button>
 
 <button mat-flat-button

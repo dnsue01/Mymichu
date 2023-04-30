@@ -19,6 +19,7 @@ import { AjustesComponent } from './ajustes/ajustes.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { NotasComponent } from './notas/notas.component';
+import { ResultadosComponent } from './resultados/resultados.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NotasComponent } from './notas/notas.component';
     PanelControlComponent,
     AjustesComponent,
     PerfilComponent,
-    NotasComponent
+    NotasComponent,
+    ResultadosComponent
 
   ],
   imports: [
