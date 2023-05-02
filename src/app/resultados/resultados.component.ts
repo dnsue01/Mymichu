@@ -86,6 +86,9 @@ export class ResultadosComponent implements OnInit {
   }
 
   seleccionarPruebaDetalle(e: any) {
+    if(e.target.value == ""){
+      return;
+    }
     this.pruebaYAtleta.prueba = e.target.value
 
    this.pruebaYAtleta.id_atleta = this.usuario.id
@@ -192,6 +195,7 @@ export class ResultadosComponent implements OnInit {
       this.chartData[chartId].data.datasets[0].data = marcas;
       this.chartData[chartId].update();
     }
+    const ctx = this.myChart.nativeElement.getContext('2d');
     // create a new chart
     this.chartData[chartId] = new Chart(ctx, {
       type: 'line',
