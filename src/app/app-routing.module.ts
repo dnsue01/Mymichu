@@ -10,7 +10,9 @@ import { AjustesComponent } from './ajustes/ajustes.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { NotasComponent } from './notas/notas.component';
 import { ResultadosComponent } from './resultados/resultados.component';
+import { CrearEntrenadoresComponent } from './crear-entrenadores/crear-entrenadores.component';
 
+import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar-usuarios.component';
 const routes: Routes =
   [
     { path: "", component: FrontPageComponent, pathMatch: "full" },
@@ -21,19 +23,25 @@ const routes: Routes =
     {
       path: "principal/:id", component: PaginaPrincipalComponent,
       children: [
-       { path: "", component: AjustesComponent, pathMatch: "full" },
-       { path: 'ajustes', component: AjustesComponent },
-       { path: 'perfil', component: PerfilComponent },
-       { path: 'notas', component: NotasComponent },
-       { path: 'resultados', component: ResultadosComponent },
+        { path: "", component: AjustesComponent, pathMatch: "full" },
+        { path: 'ajustes', component: AjustesComponent },
+        { path: 'perfil', component: PerfilComponent },
+        { path: 'notas', component: NotasComponent },
+        { path: 'resultados', component: ResultadosComponent },
       ]
     },
 
 
 
     //administradores
-    { path: "panelControl/:id", component: PanelControlComponent }
+    { path: "panelControl/:id", component: PanelControlComponent ,
+    children: [
+      { path: "", component: AdministrarUsuariosComponent, pathMatch: "full" },
+      { path: "usuarios", component: AdministrarUsuariosComponent },
+      { path: "crearEntrenadores", component: CrearEntrenadoresComponent },
 
+    ]},
+    { path: "**", component: FrontPageComponent }
   ];
 
 @NgModule({

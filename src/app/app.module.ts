@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
@@ -20,6 +20,14 @@ import { PerfilComponent } from './perfil/perfil.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { NotasComponent } from './notas/notas.component';
 import { ResultadosComponent } from './resultados/resultados.component';
+import { BarraLateralComponent } from './barra-lateral/barra-lateral.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar-usuarios.component';
+import { CrearEntrenadoresComponent } from './crear-entrenadores/crear-entrenadores.component';
+
+
 
 @NgModule({
   declarations: [
@@ -32,7 +40,10 @@ import { ResultadosComponent } from './resultados/resultados.component';
     AjustesComponent,
     PerfilComponent,
     NotasComponent,
-    ResultadosComponent
+    ResultadosComponent,
+    BarraLateralComponent,
+    AdministrarUsuariosComponent,
+    CrearEntrenadoresComponent
 
   ],
   imports: [
@@ -43,8 +54,12 @@ import { ResultadosComponent } from './resultados/resultados.component';
     MatIconModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    MatSidenavModule,
+    LayoutModule,
+    MatButtonModule,
+    MatListModule
+  ], 
   providers: [],
   bootstrap: [AppComponent]
 })
