@@ -1,63 +1,93 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ConexionPhpService {
+  url = 'http://mimichu.lovestoblog.com/michu/';
 
-  url = "http://localhost/michu/"
-
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient) {}
 
   registro(usuario: any) {
     return this.http.post(`${this.url}registro.php`, JSON.stringify(usuario));
   }
 
   iniciarSesion(usuario: any) {
-    return this.http.post(`${this.url}iniciarSesion.php`, JSON.stringify(usuario));
+    return this.http.post(
+      `${this.url}iniciarSesion.php`,
+      JSON.stringify(usuario)
+    );
   }
 
-
   comprobarUsuario(usuario: any) {
-    return this.http.post(`${this.url}comprobarUsuario.php`, JSON.stringify(usuario));
+    return this.http.post(
+      `${this.url}comprobarUsuario.php`,
+      JSON.stringify(usuario)
+    );
   }
 
   comprobarUsuarioInicio(usuario: any) {
-    return this.http.post(`${this.url}comprobarUsuarioInicio.php`, JSON.stringify(usuario));
+    return this.http.post(
+      `${this.url}comprobarUsuarioInicio.php`,
+      JSON.stringify(usuario)
+    );
   }
   comprobarAdmin(id: any) {
     return this.http.post(`${this.url}comprobarAdmin.php`, JSON.stringify(id));
   }
   recuperarId(usuario: any) {
-    return this.http.post(`${this.url}recuperarId.php`, JSON.stringify(usuario));
+    return this.http.post(
+      `${this.url}recuperarId.php`,
+      JSON.stringify(usuario)
+    );
   }
 
   RecuperarFoto(usuario: any) {
-    return this.http.post(`${this.url}recuperarFoto.php`, JSON.stringify(usuario));
+    return this.http.post(
+      `${this.url}recuperarFoto.php`,
+      JSON.stringify(usuario)
+    );
   }
   recuperarUsuario(id: any) {
-    return this.http.post(`${this.url}recuperarUsuario.php`, JSON.stringify(id));
+    return this.http.post(
+      `${this.url}recuperarUsuario.php`,
+      JSON.stringify(id)
+    );
   }
   ActualizarFoto(idYFoto: any) {
-    return this.http.post(`${this.url}ActualizarFoto.php`, JSON.stringify(idYFoto));
+    return this.http.post(
+      `${this.url}ActualizarFoto.php`,
+      JSON.stringify(idYFoto)
+    );
   }
   BorrarFoto(usuario: any) {
     return this.http.post(`${this.url}borrarFoto.php`, JSON.stringify(usuario));
   }
   ComprobarCorreo(correo: any) {
-    return this.http.post(`${this.url}comprobarCorreo.php`, JSON.stringify(correo));
+    return this.http.post(
+      `${this.url}comprobarCorreo.php`,
+      JSON.stringify(correo)
+    );
   }
 
   actualizarCorreo(usuario: any) {
-    return this.http.post(`${this.url}actualizarCorreo.php`, JSON.stringify(usuario));
+    return this.http.post(
+      `${this.url}actualizarCorreo.php`,
+      JSON.stringify(usuario)
+    );
   }
 
   comprobarContrasenna(usuario: any) {
-    return this.http.post(`${this.url}comprobarContrasenna.php`, JSON.stringify(usuario));
+    return this.http.post(
+      `${this.url}comprobarContrasenna.php`,
+      JSON.stringify(usuario)
+    );
   }
   actualizarContrasenna(usuario: any) {
-    return this.http.post(`${this.url}actualizarContrasenna.php`, JSON.stringify(usuario));
+    return this.http.post(
+      `${this.url}actualizarContrasenna.php`,
+      JSON.stringify(usuario)
+    );
   }
   insertarNota(nota: any) {
     return this.http.post(`${this.url}insertarNota.php`, JSON.stringify(nota));
@@ -73,13 +103,22 @@ export class ConexionPhpService {
     return this.http.get(`${this.url}recuperarPruebas.php`);
   }
   insertarMarca(marca: any) {
-    return this.http.post(`${this.url}insertarMarca.php`, JSON.stringify(marca));
+    return this.http.post(
+      `${this.url}insertarMarca.php`,
+      JSON.stringify(marca)
+    );
   }
 
   recogerDistintasPruebasUsuario(id: any) {
-    return this.http.post(`${this.url}recogerDistintasPruebasUsuario.php`, JSON.stringify(id));
+    return this.http.post(
+      `${this.url}recogerDistintasPruebasUsuario.php`,
+      JSON.stringify(id)
+    );
   }
-  recogerMarcasPorPruebaAtleta(pruebaYAtleta:any){
-    return this.http.post(`${this.url}recogerMarcasPorPruebaAtleta.php`, JSON.stringify(pruebaYAtleta));
+  recogerMarcasPorPruebaAtleta(pruebaYAtleta: any) {
+    return this.http.post(
+      `${this.url}recogerMarcasPorPruebaAtleta.php`,
+      JSON.stringify(pruebaYAtleta)
+    );
   }
 }

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./panel-control.component.scss']
 })
 export class PanelControlComponent {
-
+  showFiller = false;
 }

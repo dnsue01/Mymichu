@@ -2,22 +2,16 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
 import Chart from 'chart.js/auto';
 
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConexionPhpService } from '../conexion-php.service';
 import Swal from 'sweetalert2';
 
-
-
-
-
 @Component({
   selector: 'app-resultados',
   templateUrl: './resultados.component.html',
-  styleUrls: ['./resultados.component.scss']
+  styleUrls: ['./resultados.component.scss'],
 })
 export class ResultadosComponent implements OnInit {
-
   @ViewChild('myChart', { static: true }) myChart!: ElementRef;
 
 
@@ -25,22 +19,21 @@ export class ResultadosComponent implements OnInit {
 
 
   usuario = {
-    correo: "",
-    nombre: "",
-    apellidos: "",
-    sexo: "",
-    fecha: "",
-    id: "",
-    nombreUsuario: "",
-    foto: "",
-    categoria: ""
-  }
+    correo: '',
+    nombre: '',
+    apellidos: '',
+    sexo: '',
+    fecha: '',
+    id: '',
+    nombreUsuario: '',
+    foto: '',
+    categoria: '',
+  };
 
-  pruebas: any
-  pruebasAtleta: any
+  pruebas: any;
+  pruebasAtleta: any;
 
-  resultados: any
-
+  resultados: any;
 
   pruebaYAtleta = {
     prueba: "",
@@ -49,43 +42,42 @@ export class ResultadosComponent implements OnInit {
   pruebaTexto: any = ""
 
   marca = {
-    id_atleta: "",
-    id_prueba: "",
-    marca: ""
-  }
+    id_atleta: '',
+    id_prueba: '',
+    marca: '',
+  };
   config = {
-    type: "line",
-    data: []
-  }
+    type: 'line',
+    data: [],
+  };
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.usuario.id = params["id"];
+    this.route.queryParams.subscribe((params) => {
+      this.usuario.id = params['id'];
     });
 
     this.recuperarUsuario();
     this.recuperarPruebas();
     this.recogerDistintasPruebasUsuario();
-
-
   }
 
   recuperarUsuario() {
-    this.ConexionPhpService.recuperarUsuario(this.usuario.id).subscribe((datos: any) => {
-      this.usuario.nombre = datos[1];
-      this.usuario.apellidos = datos[2];
-      this.usuario.sexo = datos[3] == 1 ? "Masculino" : "Femenino";
-      this.usuario.fecha = datos[4];
-      this.usuario.categoria = datos[5];
-      this.usuario.nombreUsuario = datos[6];
-      this.usuario.correo = datos[7];
-    });
+    this.ConexionPhpService.recuperarUsuario(this.usuario.id).subscribe(
+      (datos: any) => {
+        this.usuario.nombre = datos[1];
+        this.usuario.apellidos = datos[2];
+        this.usuario.sexo = datos[3] == 1 ? 'Masculino' : 'Femenino';
+        this.usuario.fecha = datos[4];
+        this.usuario.categoria = datos[5];
+        this.usuario.nombreUsuario = datos[6];
+        this.usuario.correo = datos[7];
+      }
+    );
   }
-
 
   recuperarPruebas() {
     this.ConexionPhpService.recuperarPruebas().subscribe((datos: any) => {
-      this.pruebas = datos
+      this.pruebas = datos;
     });
   }
   seleccionarPrueba(e: any) {
@@ -95,17 +87,16 @@ export class ResultadosComponent implements OnInit {
   }
 
   seleccionarPruebaDetalle(e: any) {
-    this.pruebaTexto = e.target.value
-    this.pruebaYAtleta.prueba = e.target.options[e.target.selectedIndex].textContent;
-    this.pruebaYAtleta.id_atleta = this.usuario.id
+    this.pruebaYAtleta.prueba = e.target.value
 
+   this.pruebaYAtleta.id_atleta = this.usuario.id
+    
     this.recogerMarcasPorPruebaAtleta(this.pruebaYAtleta);
 
 
   }
   subirMarca() {
-
-    if (!this.marca.marca || this.marca.marca == "0") {
+    if (!this.marca.marca || this.marca.marca == '0') {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -121,7 +112,7 @@ export class ResultadosComponent implements OnInit {
       });
       return;
     }
-    if (this.marca.id_prueba == "") {
+    if (this.marca.id_prueba == '') {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -130,11 +121,11 @@ export class ResultadosComponent implements OnInit {
       return;
     }
 
-    this.marca.id_atleta = this.usuario.id
+    this.marca.id_atleta = this.usuario.id;
 
     this.insertarMarca();
+    this.recogerDistintasPruebasUsuario();
   }
-
 
   chartData: any = {};
 
@@ -164,14 +155,17 @@ export class ResultadosComponent implements OnInit {
   }
 
   recogerDistintasPruebasUsuario() {
-    this.ConexionPhpService.recogerDistintasPruebasUsuario(this.usuario.id).subscribe((datos: any) => {
-      this.pruebasAtleta = datos
+    this.ConexionPhpService.recogerDistintasPruebasUsuario(
+      this.usuario.id
+    ).subscribe((datos: any) => {
+      this.pruebasAtleta = datos;
     });
-
   }
 
   recogerMarcasPorPruebaAtleta(pruebaYAtleta: any) {
-    this.ConexionPhpService.recogerMarcasPorPruebaAtleta(pruebaYAtleta).subscribe((datos: any) => {
+    this.ConexionPhpService.recogerMarcasPorPruebaAtleta(
+      pruebaYAtleta
+    ).subscribe((datos: any) => {
       let fechas = datos.map((item: any) => item.fecha);
       let marcas = datos.map((item: any) => item.marca);
       this.updateChart(pruebaYAtleta.prueba, fechas, marcas);
@@ -189,13 +183,15 @@ export class ResultadosComponent implements OnInit {
       type: 'line',
       data: {
         labels: fechas,
-        datasets: [{
-          label: prueba,
-          data: marcas,
-          fill: false,
-          borderColor: '#4bc0c0'
-        }]
-      }
+        datasets: [
+          {
+            label: prueba,
+            data: marcas,
+            fill: false,
+            borderColor: '#4bc0c0',
+          },
+        ],
+      },
     };
     this.chartData[chartId] = new Chart(ctx, config);
   }
@@ -207,31 +203,6 @@ export class ResultadosComponent implements OnInit {
     if (existingChart) {
       existingChart.destroy(); // destroy previous chart if it exists
     }
-    // create a new chart
-    this.chartData[chartId] = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: fechas,
-        datasets: [{
-          label: prueba,
-          data: marcas,
-          borderColor: 'rgb(255, 99, 132)',
-          fill: false
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-    
-    // update the chart
-    this.chartData[chartId].update();
   }
   
 
@@ -240,10 +211,4 @@ export class ResultadosComponent implements OnInit {
   resetChartData() {
     this.chartData = {};
   }
-
-
-
 }
-
-
-
