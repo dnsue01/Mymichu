@@ -18,6 +18,8 @@ export class ResultadosComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private ConexionPhpService: ConexionPhpService) { }
 
 
+
+
   usuario = {
     correo: '',
     nombre: '',
@@ -39,7 +41,6 @@ export class ResultadosComponent implements OnInit {
     prueba: "",
     id_atleta: ""
   }
-  pruebaTexto: any = ""
 
   marca = {
     id_atleta: '',
@@ -82,11 +83,12 @@ export class ResultadosComponent implements OnInit {
   }
   seleccionarPrueba(e: any) {
     this.marca.id_prueba = e.target.value
-    this.pruebaYAtleta.prueba = e.target.options[e.target.selectedIndex].textContent;
-
   }
 
   seleccionarPruebaDetalle(e: any) {
+    if(e.target.value == ""){
+      return;
+    }
     this.pruebaYAtleta.prueba = e.target.value
 
    this.pruebaYAtleta.id_atleta = this.usuario.id
@@ -137,21 +139,9 @@ export class ResultadosComponent implements OnInit {
         showConfirmButton: false,
         timer: 700
       })
-
-      this.recogerDistintasPruebasUsuario();
-
-      console.log(this.pruebaTexto );
-      console.log(this.pruebaYAtleta.prueba);
-      
-
-      if (this.pruebaTexto == this.pruebaYAtleta.prueba) {
-        this.recogerMarcasPorPruebaAtleta(this.pruebaYAtleta)
-      }
     });
-
-
-
-
+    
+    this.recogerDistintasPruebasUsuario();
   }
 
   recogerDistintasPruebasUsuario() {
@@ -195,18 +185,45 @@ export class ResultadosComponent implements OnInit {
     };
     this.chartData[chartId] = new Chart(ctx, config);
   }
-
-  updateChart(prueba: string, fechas: any[], marcas: any[]) {
-    const ctx = this.myChart.nativeElement.getContext('2d');
-    const chartId = `0`; // generate unique ID for the chart
-    const existingChart = this.chartData[chartId];
-    if (existingChart) {
-      existingChart.destroy(); // destroy previous chart if it exists
+  
+  updateChart(prueba: any, fechas: any, marcas: any) {
+    const chartId = `chart-${prueba}`; // generate unique ID for the chart
+    if (!this.chartData[chartId]) {
+      this.creaChart(prueba, fechas, marcas);
+    } else {
+      this.chartData[chartId].data.labels = fechas;
+      this.chartData[chartId].data.datasets[0].data = marcas;
+      this.chartData[chartId].update();
     }
+    const ctx = this.myChart.nativeElement.getContext('2d');
+    // create a new chart
+    this.chartData[chartId] = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: fechas,
+        datasets: [{
+          label: prueba,
+          data: marcas,
+          borderColor: 'rgb(255, 99, 132)',
+          fill: false
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    
+    // update the chart
+    this.chartData[chartId].update();
   }
   
-
-
+  
 
   resetChartData() {
     this.chartData = {};

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ConexionPhpService {
-  url = 'http://mimichu.lovestoblog.com/michu/';
+  url = 'http://localhost/michu/';
 
   constructor(private http: HttpClient) {}
 

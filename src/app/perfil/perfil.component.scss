@@ -9,17 +9,19 @@ body {
 }
 
 .fotoPerfil {
-  text-align: center;
-  height: 10vh;
-  width: 10vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  border-radius: 50%;
 }
 
 .fotoPerfil img {
   border-radius: 50%;
-
+;
+  height: 10vh;
+  width: 10vh;
 
 
 }
