@@ -1,0 +1,49 @@
+.btn {
+  margin-top: 0.1vh;
+
+  background-color: #02ca84;
+  color: white;
+}
+
+.card {
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centro {
+  text-align: center;
+  color: red;
+}
+
+.contrasennaIn {
+  width: 80%;
+}
+
+/* Mobile devices */
+@media only screen and (max-width: 767px) {
+  .card {
+    height: 65vh;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  input {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1rem;
+  }
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .card {
+    height: 65vh;
+  }
+}
+
+/* Laptops and desktops */
+@media only screen and (min-width: 992px) {
+}
