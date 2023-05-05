@@ -121,4 +121,11 @@ export class ConexionPhpService {
       JSON.stringify(pruebaYAtleta)
     );
   }
+
+  registrarEntrenadores(usuario: any) {
+    return this.http.post(
+      `${this.url}registrarEntrenadores.php`,
+      JSON.stringify(usuario)
+    );
+  }
 }

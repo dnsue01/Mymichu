@@ -20,34 +20,48 @@
               class="form-control"
               id="nombre"
               placeholder="Nombre entrenador"
+              [(ngModel)]="usuario.nombreUsuario"
             />
             <br />
             <div class="form-group">
-              <h2 for="text">Correo entrneador</h2>
+              <h2 for="text">Correo entrenador</h2>
               <input
                 type="email"
                 class="form-control"
                 id="correo"
-                placeholder="Correo entrneador"
+                placeholder="Correo entrenador"
+                [(ngModel)]="usuario.correo"
               />
             </div>
             <br />
 
             <h2>Contraseña</h2>
             <div class="row">
-              <div class="col-12"><h1>**********************</h1></div>
+              <div
+                class="col-12"
+                *ngIf="oculta == false; else basicUserTemplate"
+              >
+                <h1>
+                  {{ contasenaOculta }}
+                </h1>
+              </div>
+              <ng-template #basicUserTemplate>
+                <h1>{{ usuario.contrasenna }}</h1>
+              </ng-template>
             </div>
             <div class="row">
               <div class="col-2 col-sm-2 col-md-2 col-xl-1">
-                <button class="btn">Ver</button>
+                <button class="btn" (click)="cambiarVisible()">Ver</button>
               </div>
               <div class="col-10 col-sm-10 col-md-10 col-xl-3">
-                <button class="btn">Nueva contraseña</button>
+                <button class="btn" (click)="generarContraAleatorio()">
+                  Nueva contraseña
+                </button>
               </div>
             </div>
 
             <br />
-            <button class="btn">Registro</button>
+            <button class="btn" (click)="registar()">Registro</button>
           </div>
         </div>
       </div>

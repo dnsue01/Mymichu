@@ -6,33 +6,33 @@ import { ConexionPhpService } from '../conexion-php.service';
 @Component({
   selector: 'app-registro-sesion',
   templateUrl: './registro-sesion.component.html',
-  styleUrls: ['./registro-sesion.component.scss']
+  styleUrls: ['./registro-sesion.component.scss'],
 })
 export class RegistroSesionComponent {
-  constructor(private ConexionPhpService: ConexionPhpService, private router: Router) { }
+  constructor(
+    private ConexionPhpService: ConexionPhpService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 
   usuario = {
-    correo: "",
-    nombre: "",
-    apellidos: "",
-    contrasenna: "",
-    contrasennaConfirmacion: "",
-    sexo: "",
-    fecha: "",
-    id: "",
-    nombreUsuario: "",
-    correoOnombre:""
-  }
-  sexo: string = "";
+    correo: '',
+    nombre: '',
+    apellidos: '',
+    contrasenna: '',
+    contrasennaConfirmacion: '',
+    sexo: '',
+    fecha: '',
+    id: '',
+    nombreUsuario: '',
+    correoOnombre: '',
+  };
+  sexo: string = '';
 
   radio(event: any) {
-
     this.sexo = event.target.value;
-    this.usuario.sexo = this.sexo
+    this.usuario.sexo = this.sexo;
   }
   Registrarse() {
     if (!this.validarNombre(this.usuario.nombreUsuario)) {
@@ -68,8 +68,6 @@ export class RegistroSesionComponent {
       return;
     }
 
-
-
     if (!this.usuario.contrasenna) {
       Swal.fire({
         icon: 'error',
@@ -79,7 +77,11 @@ export class RegistroSesionComponent {
       return;
     }
 
-    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])(?=.*[^\dA-Za-z]).{5,}$/.test(this.usuario.contrasenna)) {
+    if (
+      !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])(?=.*[^\dA-Za-z]).{5,}$/.test(
+        this.usuario.contrasenna
+      )
+    ) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -106,7 +108,6 @@ export class RegistroSesionComponent {
       return;
     }
 
-
     let errorMessage = '';
     switch (this.sexo) {
       case '':
@@ -123,64 +124,53 @@ export class RegistroSesionComponent {
       return;
     }
 
-    
     this.comprobacion();
-
-
-  }
-
-  intro(){
-  console.log("hola");
-  
   }
 
   //funciones
   comprobacion() {
-    this.ConexionPhpService.comprobarUsuario(this.usuario).subscribe((datos: any) => {
-      if (datos) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'El correo o el usuario ya esta en uso por favor utiliza otro',
-        })
-      } else {
-        this.registro();
+    this.ConexionPhpService.comprobarUsuario(this.usuario).subscribe(
+      (datos: any) => {
+        if (datos) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'El correo o el usuario ya esta en uso por favor utiliza otro',
+          });
+        } else {
+          this.registro();
+        }
       }
-
-    });
+    );
   }
-
 
   //funcion de registro
   registro() {
     this.ConexionPhpService.registro(this.usuario).subscribe((datos: any) => {
       if (datos['resultado'] == 'OK') {
-
         Swal.fire({
           icon: 'success',
           title: 'Registrado correctamente',
           showConfirmButton: false,
-          timer: 1500
-        })
+          timer: 1500,
+        });
         this.usuario.correoOnombre = this.usuario.nombreUsuario;
-        this.recuperarId()
+        this.recuperarId();
       }
     });
   }
 
   recuperarId() {
-    this.ConexionPhpService.recuperarId(this.usuario).subscribe((datos: any) => {
-      if (datos['resultado'] == 'OK') {
-        //compruebo que tipo de usuario es 
-        this.usuario.id = datos['mensaje']
-        this.entrar();
-
+    this.ConexionPhpService.recuperarId(this.usuario).subscribe(
+      (datos: any) => {
+        if (datos['resultado'] == 'OK') {
+          //compruebo que tipo de usuario es
+          this.usuario.id = datos['mensaje'];
+          this.entrar();
+        }
       }
-
-    });
-
+    );
   }
-
 
   validarNombre(nombre: any) {
     //Cualquier string de entre 4 y 16
@@ -206,14 +196,16 @@ export class RegistroSesionComponent {
     // Obtener la fecha a comparar en formato de objeto Date
     const fechaComparar = new Date(fecha);
     // Restarle 4 años a la fecha actual
-    const cuatroAniosAtras = new Date(hoy.getFullYear() - 4, hoy.getMonth(), hoy.getDate());
+    const cuatroAniosAtras = new Date(
+      hoy.getFullYear() - 4,
+      hoy.getMonth(),
+      hoy.getDate()
+    );
     // Comparar si la fecha a comparar es anterior a cuatro años atrás
     return fechaComparar < cuatroAniosAtras;
   }
 
-
-
   entrar() {
-    this.router.navigate(["/principal", this.usuario.id]);
+    this.router.navigate(['/principal', this.usuario.id]);
   }
 }
