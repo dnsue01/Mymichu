@@ -128,4 +128,17 @@ export class ConexionPhpService {
       JSON.stringify(usuario)
     );
   }
+
+  recuperarEntrenadores() {
+    return this.http.get(`${this.url}recuperarEntrenadores.php`);
+  }
+  
+  recuperarAtletas() {
+    return this.http.get(`${this.url}recuperarAtletas.php`);
+  }
+
+  borrarUsuraio(id: any) {
+    return this.http.post(`${this.url}borrarUsuario.php`, JSON.stringify(id));
+  }
+
 }
