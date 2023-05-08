@@ -143,4 +143,10 @@ export class ConexionPhpService {
   borrarMarca(id: any) {
     return this.http.post(`${this.url}borrarMarca.php`, JSON.stringify(id));
   }
+  recuperarTodasMarcasPrueba(id: any) {
+    return this.http.post(
+      `${this.url}recuperarTodasMarcasPrueba.php`,
+      JSON.stringify(id)
+    );
+  }
 }

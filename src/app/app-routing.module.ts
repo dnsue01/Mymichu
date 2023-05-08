@@ -11,41 +11,43 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { NotasComponent } from './notas/notas.component';
 import { ResultadosComponent } from './resultados/resultados.component';
 import { CrearEntrenadoresComponent } from './crear-entrenadores/crear-entrenadores.component';
+import { GestionarMarcasComponent } from './gestionar-marcas/gestionar-marcas.component';
 
 import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar-usuarios.component';
-const routes: Routes =
-  [
-    { path: "", component: FrontPageComponent, pathMatch: "full" },
-    { path: "inicio", component: InicioSesionComponent },
-    { path: "registro", component: RegistroSesionComponent },
+const routes: Routes = [
+  { path: '', component: FrontPageComponent, pathMatch: 'full' },
+  { path: 'inicio', component: InicioSesionComponent },
+  { path: 'registro', component: RegistroSesionComponent },
 
-    //atletas
-    {
-      path: "principal/:id", component: PaginaPrincipalComponent,
-      children: [
-        { path: "", component: AjustesComponent, pathMatch: "full" },
-        { path: 'ajustes', component: AjustesComponent },
-        { path: 'perfil', component: PerfilComponent },
-        { path: 'notas', component: NotasComponent },
-        { path: 'resultados', component: ResultadosComponent },
-      ]
-    },
-
-
-
-    //administradores
-    { path: "panelControl/:id", component: PanelControlComponent ,
+  //atletas
+  {
+    path: 'principal/:id',
+    component: PaginaPrincipalComponent,
     children: [
-      { path: "", component: AdministrarUsuariosComponent, pathMatch: "full" },
-      { path: "usuarios", component: AdministrarUsuariosComponent },
-      { path: "crearEntrenadores", component: CrearEntrenadoresComponent },
+      { path: '', component: AjustesComponent, pathMatch: 'full' },
+      { path: 'ajustes', component: AjustesComponent },
+      { path: 'perfil', component: PerfilComponent },
+      { path: 'notas', component: NotasComponent },
+      { path: 'resultados', component: ResultadosComponent },
+    ],
+  },
 
-    ]},
-    { path: "**", component: FrontPageComponent }
-  ];
+  //administradores
+  {
+    path: 'panelControl/:id',
+    component: PanelControlComponent,
+    children: [
+      { path: '', component: AdministrarUsuariosComponent, pathMatch: 'full' },
+      { path: 'usuarios', component: AdministrarUsuariosComponent },
+      { path: 'crearEntrenadores', component: CrearEntrenadoresComponent },
+      { path: 'gestionaraMarcas', component: GestionarMarcasComponent },
+    ],
+  },
+  { path: '**', component: FrontPageComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

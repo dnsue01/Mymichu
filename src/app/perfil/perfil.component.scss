@@ -55,9 +55,9 @@ h3 {
 
 @media screen and (max-width: 768px) {
   /* Adjust styles for small screens */
-  .fotoPerfil img {
-    height: 5vh;
-    max-height: 50px;
+  img {
+    height: 10vh;
+    width: 10vh;
   }
 
   .email-address {
@@ -108,6 +108,7 @@ h3 {
 
   .fotoPerfil img {
     height: 10vh;
+    width: 10vh;
   }
 
   .nombreUsuario h2 {

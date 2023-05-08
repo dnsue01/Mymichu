@@ -26,6 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar-usuarios.component';
 import { CrearEntrenadoresComponent } from './crear-entrenadores/crear-entrenadores.component';
+import { GestionarMarcasComponent } from './gestionar-marcas/gestionar-marcas.component';
 
 
 
@@ -43,7 +44,8 @@ import { CrearEntrenadoresComponent } from './crear-entrenadores/crear-entrenado
     ResultadosComponent,
     BarraLateralComponent,
     AdministrarUsuariosComponent,
-    CrearEntrenadoresComponent
+    CrearEntrenadoresComponent,
+    GestionarMarcasComponent
 
   ],
   imports: [

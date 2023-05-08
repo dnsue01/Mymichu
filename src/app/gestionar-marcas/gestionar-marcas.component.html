@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Administrar Marcas</h1>
+      <select
+        name=""
+        id=""
+        (change)="seleccionarPrueba($event)"
+        class="form-select selector marca"
+        aria-label="Default select example"
+      >
+        <option value="">Elige tu prueba</option>
+        <option *ngFor="let prueba of pruebas" value="{{ prueba.id }}">
+          {{ prueba.nombre }}
+        </option>
+      </select>
+      <br />
+
+      <div class="row centro">
+        <div class="card tabla scroll">
+          <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Fechas</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col" colspan="2">Marcas</th>
+              </tr>
+            </thead>
+            <tbody
+              *ngIf="
+                marcas != undefined && marcas?.length != 0;
+                else other_content
+              "
+            >
+              <tr *ngFor="let marcaYfecha of marcas">
+                <td>{{ marcaYfecha.fecha }}</td>
+                <td>{{ marcaYfecha.nombre }}</td>
+                <td>{{ marcaYfecha.Apellidos }}</td>
+                <td>{{ marcaYfecha.marca }} {{ marcaYfecha.medida }}</td>
+                <td>
+                  <mat-icon
+                    class="material-icons color_blue"
+                    (click)="borarMarca(marcaYfecha.id)"
+                    >delete_forever</mat-icon
+                  >
+                </td>
+              </tr>
+            </tbody>
+            <ng-template #other_content>
+              <tbody>
+                <tr>
+                  <td colspan="5">No hay marcas para esta prueba</td>
+                </tr>
+              </tbody>
+            </ng-template>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
