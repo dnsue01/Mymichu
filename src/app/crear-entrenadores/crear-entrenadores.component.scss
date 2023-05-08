@@ -1,14 +1,19 @@
 ::-webkit-scrollbar {
   display: none;
 }
-
+body {
+  font-family: "Oswald", sans-serif;
+}
 .btn {
   margin-top: 0.1vh;
 
   background-color: #02ca84;
   color: white;
 }
-
+h1,
+h2 {
+  font-family: "Oswald", sans-serif;
+}
 .card {
   height: 65vh;
   display: flex;

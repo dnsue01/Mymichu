@@ -1,70 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-
+  <body>
     <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-6">
+          <h1>Entrenadores</h1>
+          <table class="table table-hover table-dark">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col" colspan="2">Nombre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let entrenador of entrenadores">
+                <th scope="row">{{ entrenador.id }}</th>
+                <td>{{ entrenador.nombre }}</td>
 
-        <div class="row">
-
-
-            <div class="col-12 col-sm-12 col-md-6">
-                <h1>Entrenadores</h1>
-                <table class="table table-hover table-dark">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col" colspan="2" >Acciones</th>
- 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let entrenador of entrenadores">
-                            <th scope="row">{{entrenador.id}}</th>
-                            <td>{{entrenador.nombre}}</td>
-                 
-                            <td><button class="btn btn-danger" (click)="borrar(entrenador.id)">Borrar</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-12 col-sm-12 col-md-6">
-                <h1>Atletas</h1>
-                <table class="table table-hover table-dark">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col" colspan="2">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr *ngFor="let atleta of atletas">
-                            <th scope="row">{{atleta.id}}</th>
-                            <td>{{atleta[3]}}</td>
-                            <td><button class="btn btn-primary" (click)="infoAtleta(atleta)">Info</button></td>
-                            <td><button class="btn btn-danger" (click)="borrar(atleta.id)">Borrar</button></td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-
-
-
-
+                <td>
+                  <mat-icon
+                    class="material-icons color_red"
+                    (click)="borrar(entrenador.id)"
+                    >delete_forever</mat-icon
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-    </div>
-</body>
 
+        <div class="col-12 col-sm-12 col-md-6">
+          <h1>Atletas</h1>
+          <table class="table table-hover table-dark">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col" colspan="3">Nombre</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let atleta of atletas">
+                <th scope="row">{{ atleta.id }}</th>
+                <td>{{ atleta[3] }}</td>
+                <td>
+                  <mat-icon
+                    class="material-icons color_blue"
+                    (click)="infoAtleta(atleta)"
+                    >info</mat-icon
+                  >
+                </td>
+                <td>
+                  <mat-icon
+                    class="material-icons color_red"
+                    (click)="borrar(atleta.id)"
+                    >delete_forever</mat-icon
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

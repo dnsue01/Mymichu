@@ -2,14 +2,17 @@ body {
   min-height: 100vh;
   background-color: #02ca84;
   color: white;
+  font-family: "Oswald", sans-serif;
 }
-
+h2,
+h3 {
+  font-family: "Oswald", sans-serif;
+}
 .titulo {
   text-align: center;
 }
 
 .fotoPerfil {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,13 +22,10 @@ body {
 
 .fotoPerfil img {
   border-radius: 50%;
-;
   height: 10vh;
   width: 10vh;
-
-
 }
-.centro{
+.centro {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,12 +33,11 @@ body {
 .nombreUsuario h2 {
   text-align: center;
 }
-.card{
+.card {
   width: 60%;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
-
-
 
 .detalles {
   height: 10vh;
@@ -55,7 +54,6 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-
   /* Adjust styles for small screens */
   .fotoPerfil img {
     height: 5vh;
@@ -68,9 +66,8 @@ body {
     word-wrap: break-word;
     line-height: 1.5;
   }
-  .card{
+  .card {
     width: 95%;
-    
   }
 }
 
@@ -98,9 +95,8 @@ body {
     word-wrap: break-word;
     line-height: 1.5;
   }
-  .card{
+  .card {
     width: 95%;
-    
   }
 }
 
@@ -128,8 +124,7 @@ body {
     word-wrap: break-word;
     line-height: 1.5;
   }
-  .card{
+  .card {
     width: 95%;
-    
   }
 }

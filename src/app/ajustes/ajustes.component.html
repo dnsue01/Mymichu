@@ -1,71 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-12">
-                <h1 class="titulo">Ajustes</h1>
-            </div>
+      <div class="row">
+        <div class="col-12">
+          <h1 class="titulo">Ajustes</h1>
         </div>
-        <div class="row">
-
-            <div class="centro">
-                <div class="card">
-                    <div class="container">
-
-
-                        <form [formGroup]="myForm" (ngSubmit)="submit()">
-                            <div class="form-group">
-                                <br>
-                                <h1>Cambia tu foto de perfil</h1>
-                                <br>
-                                <input formControlName="file" id="file" type="file" class="form-control"
-                                    (change)="onFileChange($event)">
-                                <div *ngIf="f['file'].touched && f['file'].invalid" class="alert alert-danger">
-                                    <div *ngIf="f['file'].errors && f['file'].errors['required']">Necesitas poner una
-                                        imagen.</div>
-                                </div>
-                            </div>
-
-                            <button class="btn btn-xxl rounded-pill mt-5" [disabled]="myForm.invalid"
-                                type="submit">Cambiar</button>
-                        </form>
-
-
-                        <h1>Cambia tu correo </h1>
-                        <input class="form-control" type="email" name="correo" id="correo" placeholder={{usuario.correo}} [(ngModel)]="usuario.nuevoCorreo">
-
-                        <button class="btn btn-xxl rounded-pill mt-5" type="submit" (click)="cambiarCorreo()">Cambiar</button>
-
-
-                        <h1>Escribe tu antigua contraseña </h1>
-                        <input class="form-control" type="password" name="" id="contrasenna"
-                            placeholder="Antigua contraseña" [(ngModel)]="usuario.contrasenna">
-
-                        <br>    
-                        <h1>Escribe tu nueva contraseña </h1>
-                        <input class="form-control" type="password" name="" id="contrasennaConfirmacion"
-                            placeholder="Nueva contraseña" [(ngModel)]="usuario.contrasennaConfirmacion">
-
-                        <button class="btn btn-xxl rounded-pill mt-5" type="submit" (click)="comprobarContrasenna()">Cambiar</button>
-
+      </div>
+      <div class="row">
+        <div class="centro">
+          <div class="card scroll">
+            <div class="container">
+              <form [formGroup]="myForm" (ngSubmit)="submit()">
+                <div class="form-group">
+                  <br />
+                  <h1>Cambia tu foto de perfil</h1>
+                  <br />
+                  <input
+                    formControlName="file"
+                    id="file"
+                    type="file"
+                    class="form-control"
+                    (change)="onFileChange($event)"
+                  />
+                  <div
+                    *ngIf="f['file'].touched && f['file'].invalid"
+                    class="alert alert-danger"
+                  >
+                    <div
+                      *ngIf="f['file'].errors && f['file'].errors['required']"
+                    >
+                      Necesitas poner una imagen.
                     </div>
+                  </div>
                 </div>
+
+                <button
+                  class="btn btn-xxl rounded-pill mt-5"
+                  [disabled]="myForm.invalid"
+                  type="submit"
+                >
+                  Cambiar
+                </button>
+              </form>
+
+              <h1>Cambia tu correo</h1>
+              <input
+                class="form-control"
+                type="email"
+                name="correo"
+                id="correo"
+                placeholder="{{ usuario.correo }}"
+                [(ngModel)]="usuario.nuevoCorreo"
+              />
+
+              <button
+                class="btn btn-xxl rounded-pill mt-5"
+                type="submit"
+                (click)="cambiarCorreo()"
+              >
+                Cambiar
+              </button>
+
+              <h1>Escribe tu antigua contraseña</h1>
+              <input
+                class="form-control"
+                type="password"
+                name=""
+                id="contrasenna"
+                placeholder="Antigua contraseña"
+                [(ngModel)]="usuario.contrasenna"
+              />
+
+              <br />
+              <h1>Escribe tu nueva contraseña</h1>
+              <input
+                class="form-control"
+                type="password"
+                name=""
+                id="contrasennaConfirmacion"
+                placeholder="Nueva contraseña"
+                [(ngModel)]="usuario.contrasennaConfirmacion"
+              />
+
+              <button
+                class="btn btn-xxl rounded-pill mt-5"
+                type="submit"
+                (click)="comprobarContrasenna()"
+              >
+                Cambiar
+              </button>
             </div>
-
+          </div>
         </div>
-
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>

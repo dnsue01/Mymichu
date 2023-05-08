@@ -1,60 +1,72 @@
-.centro{
-    display: flex;
-    align-items: center;
-    justify-content: center;
- 
+.centro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 body {
-    min-height: 100vh;
-    background-color: #02ca84;
-    color: white;
-  }
+  min-height: 100vh;
+  background-color: #02ca84;
+  color: white;
+  font-family: "Oswald", sans-serif;
+}
 
-  .card{
-    width: 70%;
-    color: rgb(128, 128, 128);
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  }
-  
-  .titulo{
-    text-align: center;
-  }
-  .btn{
-    background-color: #02ca84;
-    color: rgb(0, 0, 0);
+.card {
+  width: 70%;
+  color: rgb(128, 128, 128);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: calc(100vh - 200px);
+}
+h1 {
+  font-family: "Oswald", sans-serif;
+}
+.titulo {
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+}
+.btn {
+  background-color: #02ca84;
+  color: rgb(0, 0, 0);
 
-    width: 40%;
-    margin-bottom: 1%;
-    border: 1px solid black;
-   
+  width: 40%;
+  margin-bottom: 1%;
+  border: 1px solid black;
+}
+.scroll::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 20px;
+}
+.scroll::-webkit-scrollbar:window-inactive {
+  display: none;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #007f53;
+  border-radius: 6px;
+}
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 90%;
   }
+}
 
-  @media only screen and (max-width: 768px) {
-
-    .card {
-      width: 90%;
-    }
+@media only screen and (max-width: 576px) {
+  .card {
+    width: 90%;
   }
-  
-  @media only screen and (max-width: 576px) {
+}
 
-    .card {
-      width: 90%;
-    }
-
+@media only screen and (max-width: 480px) {
+  .card {
+    width: 90%;
   }
-  
-  @media only screen and (max-width: 480px) {
+}
 
-    .card {
-      width: 90%;
-    }
+@media only screen and (max-width: 375px) {
+  .card {
+    width: 90%;
   }
-  
-  @media only screen and (max-width: 375px) {
-
-    .card {
-      width: 90%;
-    }
-  }
-  
+}

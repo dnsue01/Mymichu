@@ -217,7 +217,7 @@ export class ResultadosComponent implements OnInit {
             label: prueba,
             data: marcas,
             fill: false,
-            borderColor: '#4bc0c0',
+            borderColor: '#02ca84',
           },
         ],
       },

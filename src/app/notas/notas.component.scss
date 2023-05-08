@@ -1,13 +1,15 @@
 body {
   max-height: 110vh;
   background-color: #02ca84;
+  font-family: "Oswald", sans-serif;
 }
 .mt-5 {
-  margin-top: 1rem !important;
+  margin-top: 0.5rem !important;
 }
 .titulo {
   text-align: center;
   color: white;
+  font-family: "Oswald", sans-serif;
 }
 
 .crearCarta {
@@ -46,6 +48,7 @@ body {
   text-align: center;
   color: black;
   margin-top: 2%;
+  font-family: "Oswald", sans-serif;
 }
 
 textarea {
@@ -105,23 +108,31 @@ textarea {
   scrollbar-width: none;
 }
 
-.scroll::-webkit-scrollbar {
-  display: none;
-}
-
 .scroll_texto {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 .long-text {
-  overflow-x: hidden;
   word-wrap: break-word;
+  font-family: "Oswald", sans-serif;
 }
 
 .scroll {
+  height: 50vh;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: calc(100vh - 200px);
+}
+.scroll::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 20px;
+}
+.scroll::-webkit-scrollbar:window-inactive {
+  display: none;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #007f53;
+  border-radius: 6px;
 }
 
 .red {
@@ -137,9 +148,9 @@ textarea {
   }
   .red {
     width: 100%;
-    .mt-5 {
-      margin-top: 1rem !important;
-    }
+  }
+  .btn {
+    margin-top: 0;
   }
 }
 
@@ -157,7 +168,7 @@ textarea {
   .pequeña {
     width: 100%;
     text-align: center;
-    max-height: 15vh;
+    max-height: 20vh;
   }
 }
 
