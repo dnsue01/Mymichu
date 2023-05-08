@@ -14,11 +14,11 @@ import Swal from 'sweetalert2';
 export class ResultadosComponent implements OnInit {
   @ViewChild('myChart', { static: true }) myChart!: ElementRef;
 
-
-  constructor(private route: ActivatedRoute, private router: Router, private ConexionPhpService: ConexionPhpService) { }
-
-
-
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private ConexionPhpService: ConexionPhpService
+  ) {}
 
   usuario = {
     correo: '',
@@ -38,9 +38,9 @@ export class ResultadosComponent implements OnInit {
   resultados: any;
 
   pruebaYAtleta = {
-    prueba: "",
-    id_atleta: ""
-  }
+    prueba: '',
+    id_atleta: '',
+  };
 
   marca = {
     id_atleta: '',
@@ -52,6 +52,7 @@ export class ResultadosComponent implements OnInit {
     data: [],
   };
 
+  marcasYfechas: any;
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       this.usuario.id = params['id'];
@@ -82,20 +83,38 @@ export class ResultadosComponent implements OnInit {
     });
   }
   seleccionarPrueba(e: any) {
-    this.marca.id_prueba = e.target.value
+    this.marca.id_prueba = e.target.value;
   }
 
   seleccionarPruebaDetalle(e: any) {
-    if(e.target.value == ""){
+    if (e.target.value == '') {
       return;
     }
-    this.pruebaYAtleta.prueba = e.target.value
+    this.pruebaYAtleta.prueba = e.target.value;
 
-   this.pruebaYAtleta.id_atleta = this.usuario.id
-    
+    this.pruebaYAtleta.id_atleta = this.usuario.id;
+
     this.recogerMarcasPorPruebaAtleta(this.pruebaYAtleta);
-
-
+  }
+  borarMarca(id: any) {
+    Swal.fire({
+      title: '¿Estas seguro?',
+      text: 'vas a borrar la marca!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, quiero borrarla!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.borrarMarca(id);
+      } else if (
+        //si le da a cancelar
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire('Cancelado!', 'La marca no se borro!', 'info');
+      }
+    });
   }
   subirMarca() {
     if (!this.marca.marca || this.marca.marca == '0') {
@@ -132,16 +151,35 @@ export class ResultadosComponent implements OnInit {
   chartData: any = {};
 
   insertarMarca() {
-    this.ConexionPhpService.insertarMarca(this.marca).subscribe((datos: any) => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Marca insertada correctamente',
-        showConfirmButton: false,
-        timer: 700
-      })
-    });
-    
+    this.ConexionPhpService.insertarMarca(this.marca).subscribe(
+      (datos: any) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Marca insertada correctamente',
+          showConfirmButton: false,
+          timer: 700,
+        });
+      }
+    );
+
     this.recogerDistintasPruebasUsuario();
+    if (this.pruebaYAtleta.prueba != '') {
+      this.recogerMarcasPorPruebaAtleta(this.pruebaYAtleta);
+    }
+  }
+  borrarMarca(id: any) {
+    this.ConexionPhpService.borrarMarca(id).subscribe((datos: any) => {
+      if (datos['resultado'] == 'OK') {
+        Swal.fire({
+          icon: 'success',
+          title: 'Marca borrada correctamente',
+          showConfirmButton: false,
+          timer: 700,
+        });
+        this.recogerDistintasPruebasUsuario();
+        this.recogerMarcasPorPruebaAtleta(this.pruebaYAtleta);
+      }
+    });
   }
 
   recogerDistintasPruebasUsuario() {
@@ -156,14 +194,15 @@ export class ResultadosComponent implements OnInit {
     this.ConexionPhpService.recogerMarcasPorPruebaAtleta(
       pruebaYAtleta
     ).subscribe((datos: any) => {
+      this.marcasYfechas = datos;
       let fechas = datos.map((item: any) => item.fecha);
       let marcas = datos.map((item: any) => item.marca);
-      this.updateChart(pruebaYAtleta.prueba, fechas, marcas);
+      this.creaChart(pruebaYAtleta.prueba, fechas, marcas);
     });
   }
 
   creaChart(prueba: string, fechas: any[], marcas: any[]) {
-    const chartId = `0`; // generate unique ID for the chart
+    const chartId = '0'; // generate unique ID for the chart
     const existingChart = this.chartData[chartId];
     if (existingChart) {
       existingChart.destroy(); // destroy previous chart if it exists
@@ -184,48 +223,5 @@ export class ResultadosComponent implements OnInit {
       },
     };
     this.chartData[chartId] = new Chart(ctx, config);
-  }
-  
-  updateChart(prueba: any, fechas: any, marcas: any) {
-    const chartId = `chart-${prueba}`; // generate unique ID for the chart
-    if (!this.chartData[chartId]) {
-      this.creaChart(prueba, fechas, marcas);
-    } else {
-      this.chartData[chartId].data.labels = fechas;
-      this.chartData[chartId].data.datasets[0].data = marcas;
-      this.chartData[chartId].update();
-    }
-    const ctx = this.myChart.nativeElement.getContext('2d');
-    // create a new chart
-    this.chartData[chartId] = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: fechas,
-        datasets: [{
-          label: prueba,
-          data: marcas,
-          borderColor: 'rgb(255, 99, 132)',
-          fill: false
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-    
-    // update the chart
-    this.chartData[chartId].update();
-  }
-  
-  
-
-  resetChartData() {
-    this.chartData = {};
   }
 }

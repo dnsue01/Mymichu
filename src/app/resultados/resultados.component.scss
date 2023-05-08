@@ -39,7 +39,10 @@ body {
   margin-bottom: 1%;
   border: 1px solid black;
 }
-
+.btn-danger {
+  background-color: red;
+  color: white;
+}
 .mensaje {
   width: 100%;
 }
@@ -67,7 +70,7 @@ body {
 }
 
 .pequeña {
-  width: 80%;
+  width: 60%;
   text-align: center;
   height: auto;
 }
@@ -104,7 +107,11 @@ body {
   overflow-x: hidden;
   max-height: calc(100vh - 200px);
 }
-
+.tabla {
+  width: 60%;
+  text-align: center;
+  height: 25vh;
+}
 .red {
   width: 100%;
   background-color: rgb(255, 38, 0);
@@ -143,18 +150,24 @@ body {
     text-align: center;
     height: 20vh;
   }
+  .tabla {
+    width: 80%;
+    text-align: center;
+    height: 15vh;
   }
-  
-  @media only screen and (max-width: 480px) {
+  .btn-danger {
+    font-size: 0.5rem;
+  }
+}
 
+@media only screen and (max-width: 480px) {
+}
+
+@media only screen and (max-width: 375px) {
+  .tituloCarta {
+    font-size: 1.2rem;
   }
-  
-  @media only screen and (max-width: 375px) {
-    .tituloCarta {
-      font-size: 1.2rem;
-    }
-    .scroll{
-        height: 60vh;
-    }
+  .scroll {
+    height: 60vh;
   }
-  
+}

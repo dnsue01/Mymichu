@@ -132,7 +132,7 @@ export class ConexionPhpService {
   recuperarEntrenadores() {
     return this.http.get(`${this.url}recuperarEntrenadores.php`);
   }
-  
+
   recuperarAtletas() {
     return this.http.get(`${this.url}recuperarAtletas.php`);
   }
@@ -140,5 +140,7 @@ export class ConexionPhpService {
   borrarUsuraio(id: any) {
     return this.http.post(`${this.url}borrarUsuario.php`, JSON.stringify(id));
   }
-
+  borrarMarca(id: any) {
+    return this.http.post(`${this.url}borrarMarca.php`, JSON.stringify(id));
+  }
 }

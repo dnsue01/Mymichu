@@ -1,79 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container-fluid">
-        <div class="row">
-            <h1 class="titulo">Resultados</h1>
-        </div>
+      <div class="row">
+        <h1 class="titulo">Resultados</h1>
+      </div>
 
-        <div class="row">
-            <div class="container">
-                <div class="row">
-
-
-                    <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 crearCarta">
-
-                        <div class="card">
-                            <h1 class="tituloCarta">Escribe tu marca</h1>
-                            <div class="container mensaje">
-
-
-                                <div class="row centro">
-                                    <input  class="marca" type="number" name="marca"  min="0" placeholder="0" [(ngModel)]="marca.marca">
-                                </div>
-                                <br>
-                                <div class="row centro">
-                                    <select  name="" id="" (change)="seleccionarPrueba($event)" class="form-select selector marca "
-                                        aria-label="Default select example">
-                                        <option value="">Elige tu prueba</option>
-                                        <option *ngFor="let prueba of pruebas"  value="{{prueba.id}}">{{prueba.nombre}}
-                                        </option>
-                                    </select>
-                                </div>
-
-
-                            </div>
-                            <div class="row boton centro">
-                                <button class="btn btn-xxl rounded-pill mt-5" type="submit" (click)="subirMarca()">Subir</button>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8  ">
-                        <div class="row centro selectorPrueba">
-                        <select name="" id="" (change)="seleccionarPruebaDetalle($event) "class="form-select selector marca ">
-                            <option value="">Elige tu prueba para ver</option>
-                            <option *ngFor="let prueba of pruebasAtleta" value="{{prueba.nombre}}" >{{prueba.nombre}}
-                        </select>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="row centro">
-                        <div class="card pequeña ">
-                            <canvas #myChart ></canvas>
-                        </div>
-                    </div>
-                                
-                            
-                        
-
-                  
-                    </div>
+      <div class="row">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 crearCarta">
+              <div class="card">
+                <h1 class="tituloCarta">Escribe tu marca</h1>
+                <div class="container mensaje">
+                  <div class="row centro">
+                    <input
+                      class="marca"
+                      type="number"
+                      name="marca"
+                      min="0"
+                      placeholder="0"
+                      [(ngModel)]="marca.marca"
+                    />
+                  </div>
+                  <br />
+                  <div class="row centro">
+                    <select
+                      name=""
+                      id=""
+                      (change)="seleccionarPrueba($event)"
+                      class="form-select selector marca"
+                      aria-label="Default select example"
+                    >
+                      <option value="">Elige tu prueba</option>
+                      <option
+                        *ngFor="let prueba of pruebas"
+                        value="{{ prueba.id }}"
+                      >
+                        {{ prueba.nombre }}
+                      </option>
+                    </select>
+                  </div>
                 </div>
-
+                <div class="row boton centro">
+                  <button
+                    class="btn btn-xxl rounded-pill mt-5"
+                    type="submit"
+                    (click)="subirMarca()"
+                  >
+                    Subir
+                  </button>
+                </div>
+              </div>
             </div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+              <div class="row centro selectorPrueba">
+                <select
+                  name=""
+                  id=""
+                  (change)="seleccionarPruebaDetalle($event)"
+                  class="form-select selector marca"
+                >
+                  <option value="">Elige tu prueba para ver</option>
+                  <option
+                    *ngFor="let prueba of pruebasAtleta"
+                    value="{{ prueba.nombre }}"
+                  >
+                    {{ prueba.nombre }}
+                  </option>
+                </select>
+              </div>
+              <br />
+
+              <div class="row centro">
+                <div class="card pequeña">
+                  <canvas #myChart></canvas>
+                </div>
+              </div>
+              <br />
+              <div class="row centro">
+                <div class="card tabla scroll">
+                  <table class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Fechas</th>
+                        <th scope="col">marcas</th>
+                        <th scope="col">acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let marcaYfecha of marcasYfechas">
+                        <td>{{ marcaYfecha.fecha }}</td>
+                        <td>
+                          {{ marcaYfecha.marca }}
+                        </td>
+                        <td>
+                          <button
+                            class="btn btn-danger"
+                            (click)="borarMarca(marcaYfecha.id)"
+                          >
+                            borrar
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>
