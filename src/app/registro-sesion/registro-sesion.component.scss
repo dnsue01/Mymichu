@@ -67,7 +67,9 @@ h6{
 .radio-item label {
   font-weight: normal;
 }
-
+.scroll {
+  overflow-x: hidden;
+}
 .radio-item label:before {
   content: " ";
   display: inline-block;

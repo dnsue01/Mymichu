@@ -146,6 +146,9 @@ body {
   .selectorPrueba {
     margin-top: 5vh;
   }
+  .tabla {
+    height: 15vh;
+  }
 }
 
 @media only screen and (max-width: 576px) {
@@ -165,8 +168,6 @@ body {
     height: 20vh;
   }
   .tabla {
-    width: 80%;
-    text-align: center;
     height: 15vh;
   }
   .btn-danger {
@@ -175,6 +176,9 @@ body {
 }
 
 @media only screen and (max-width: 480px) {
+  .tabla {
+    height: 15vh;
+  }
 }
 
 @media only screen and (max-width: 375px) {
@@ -183,5 +187,8 @@ body {
   }
   .scroll {
     height: 60vh;
+  }
+  .tabla {
+    height: 15vh;
   }
 }
