@@ -165,4 +165,7 @@ export class ConexionPhpService {
       JSON.stringify(nota)
     );
   }
+  recogerNoticias() {
+    return this.http.get(`${this.url}recogerNoticias.php`);
+  }
 }

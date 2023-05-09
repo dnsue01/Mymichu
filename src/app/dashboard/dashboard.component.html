@@ -1,1 +1,51 @@
-<p>dashboard works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="centro">
+        <div class="noticias">
+          <div class="card noticia" *ngFor="let noticia of noticias">
+            <div class="row">
+              <div class="col-4 fotoYnombre">
+                <img
+                  *ngIf="noticia.foto_perfil == ''; else fotoBD"
+                  src="assets/defaultProfile.png"
+                />
+
+                <ng-template #fotoBD>
+                  <img src="{{ urlFotos }}{{ noticia.foto_perfil }}" />
+                </ng-template>
+                {{ noticia.nombre }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="row">
+                <h2 class="tituloNoticia">{{ noticia.titulo_de_noticia }}</h2>
+              </div>
+              <div class="row">
+                <h3 class="tituloNoticia texto">
+                  {{ noticia.descripcion_de_noticia }}
+                </h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <h4 class="fecha">{{ noticia.creado_en }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
