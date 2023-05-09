@@ -31,6 +31,7 @@ import { EntrenadoresComponent } from './entrenadores/entrenadores.component';
 import { BarraEntrenadorComponent } from './barra-entrenador/barra-entrenador.component';
 import { CrearNoticiasComponent } from './crear-noticias/crear-noticias.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CrearVideosComponent } from './crear-videos/crear-videos.component';
 
 
 
@@ -53,7 +54,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     EntrenadoresComponent,
     BarraEntrenadorComponent,
     CrearNoticiasComponent,
-    DashboardComponent
+    DashboardComponent,
+    CrearVideosComponent
 
   ],
   imports: [

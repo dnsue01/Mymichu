@@ -18,6 +18,7 @@ import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar
 
 import { EntrenadoresComponent } from './entrenadores/entrenadores.component';
 import { CrearNoticiasComponent } from './crear-noticias/crear-noticias.component';
+import { CrearVideosComponent } from './crear-videos/crear-videos.component';
 
 const routes: Routes = [
   { path: '', component: FrontPageComponent, pathMatch: 'full' },
@@ -46,6 +47,8 @@ const routes: Routes = [
       { path: 'ajustes', component: AjustesComponent },
       { path: 'gestionaraMarcas', component: GestionarMarcasComponent },
       { path: 'crearNoticas', component: CrearNoticiasComponent },
+      { path: 'crearNoticas', component: CrearNoticiasComponent },
+      { path: 'crearVideos', component: CrearVideosComponent },
     ],
   },
 

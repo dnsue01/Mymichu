@@ -9,7 +9,10 @@ body {
   color: white;
   font-family: "Oswald", sans-serif;
 }
-h1 {
+h1,
+h2,
+h3,
+h4 {
   font-family: "Oswald", sans-serif;
 }
 .titulo {
@@ -41,7 +44,9 @@ img {
 }
 
 .noticia {
+  border-radius: 0%;
   height: 20vh;
+
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
@@ -69,7 +74,8 @@ img {
 .noticias {
   overflow-x: hidden;
   height: 20vh;
-  width: 95%;
+  width: 40%;
+
   max-height: calc(100vh - 200px);
 }
 
@@ -85,29 +91,25 @@ img {
   border-radius: 6px;
 }
 @media only screen and (max-width: 768px) {
-  .crearNoticia {
+  .noticias {
     width: 95%;
-    height: 50vh;
   }
 }
 
 @media only screen and (max-width: 576px) {
-  .crearNoticia {
+  .noticias {
     width: 95%;
-    height: 50vh;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .crearNoticia {
+  .noticias {
     width: 95%;
-    height: 50vh;
   }
 }
 
 @media only screen and (max-width: 375px) {
-  .crearNoticia {
+  .noticias {
     width: 95%;
-    height: 50vh;
   }
 }

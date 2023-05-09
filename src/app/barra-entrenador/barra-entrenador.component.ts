@@ -49,4 +49,10 @@ export class BarraEntrenadorComponent {
       queryParams: { id },
     });
   }
+  crearVideos(id: string) {
+    this.router.navigate(['crearVideos'], {
+      relativeTo: this.route,
+      queryParams: { id },
+    });
+  }
 }
