@@ -16,6 +16,8 @@ import { GestionarMarcasComponent } from './gestionar-marcas/gestionar-marcas.co
 import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar-usuarios.component';
 
 import { EntrenadoresComponent } from './entrenadores/entrenadores.component';
+import { CrearNoticiasComponent } from './crear-noticias/crear-noticias.component';
+
 const routes: Routes = [
   { path: '', component: FrontPageComponent, pathMatch: 'full' },
   { path: 'inicio', component: InicioSesionComponent },
@@ -41,6 +43,7 @@ const routes: Routes = [
       { path: '', component: AjustesComponent, pathMatch: 'full' },
       { path: 'ajustes', component: AjustesComponent },
       { path: 'gestionaraMarcas', component: GestionarMarcasComponent },
+      { path: 'crearNoticas', component: CrearNoticiasComponent },
     ],
   },
 

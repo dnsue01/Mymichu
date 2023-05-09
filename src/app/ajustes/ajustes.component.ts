@@ -176,8 +176,8 @@ export class AjustesComponent {
   recuperarEntrenador() {
     this.ConexionPhpService.recuperarEntrenador(this.usuario.id).subscribe(
       (datos: any) => {
-        this.usuario.correo = datos[2] != null ? datos[2] : '';
-        this.usuario.foto = datos[1];
+        this.usuario.correo = datos[2];
+        this.usuario.foto = datos[1] != null ? datos[2] : '';
       }
     );
   }

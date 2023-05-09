@@ -43,4 +43,10 @@ export class BarraEntrenadorComponent {
       queryParams: { id },
     });
   }
+  crearNoticias(id: string) {
+    this.router.navigate(['crearNoticas'], {
+      relativeTo: this.route,
+      queryParams: { id },
+    });
+  }
 }

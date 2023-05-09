@@ -1,0 +1,95 @@
+.crearNoticia {
+  width: 40%;
+  height: 45vh;
+}
+input {
+  width: 70%;
+}
+.card {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  margin-top: 0.1vh;
+  background-color: #02ca84;
+  color: white;
+}
+h1,
+h2,
+h4 {
+  margin-left: 1%;
+}
+
+img {
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+}
+
+.noticia {
+  width: 50%;
+}
+
+.tituloNoticia {
+  text-align: center;
+  height: 5vh;
+  overflow-x: hidden;
+}
+
+.fecha {
+  float: right;
+  margin-right: 1%;
+}
+.texto {
+  height: 5vh;
+  overflow-x: hidden;
+}
+
+.fotoYnombre {
+  margin-left: 1%;
+  margin-top: 1%;
+}
+@media only screen and (max-width: 768px) {
+  .crearNoticia {
+    width: 95%;
+    height: 50vh;
+  }
+  .noticia {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .crearNoticia {
+    width: 95%;
+    height: 50vh;
+  }
+  .noticia {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .crearNoticia {
+    width: 95%;
+    height: 50vh;
+  }
+  .noticia {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .crearNoticia {
+    width: 95%;
+    height: 50vh;
+  }
+  .noticia {
+    width: 90%;
+  }
+}

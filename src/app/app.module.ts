@@ -29,6 +29,7 @@ import { CrearEntrenadoresComponent } from './crear-entrenadores/crear-entrenado
 import { GestionarMarcasComponent } from './gestionar-marcas/gestionar-marcas.component';
 import { EntrenadoresComponent } from './entrenadores/entrenadores.component';
 import { BarraEntrenadorComponent } from './barra-entrenador/barra-entrenador.component';
+import { CrearNoticiasComponent } from './crear-noticias/crear-noticias.component';
 
 
 
@@ -49,7 +50,8 @@ import { BarraEntrenadorComponent } from './barra-entrenador/barra-entrenador.co
     CrearEntrenadoresComponent,
     GestionarMarcasComponent,
     EntrenadoresComponent,
-    BarraEntrenadorComponent
+    BarraEntrenadorComponent,
+    CrearNoticiasComponent
 
   ],
   imports: [

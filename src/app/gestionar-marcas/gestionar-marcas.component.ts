@@ -30,7 +30,6 @@ export class GestionarMarcasComponent {
     this.ConexionPhpService.recuperarTodasMarcasPrueba(marca_id).subscribe(
       (datos: any) => {
         this.marcas = datos;
-        console.log(this.marcas);
       }
     );
   }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Crear noticia</h1>
+      <div class="centro">
+        <div class="card crearNoticia">
+          <h2>Titulo noticia</h2>
+          <div class="form-group">
+            <div class="centro">
+              <input
+                type="text"
+                class="form-control"
+                id="titulo"
+                placeholder="titulo de la notica"
+                [(ngModel)]="noticia.titulo"
+              />
+            </div>
+
+            <br />
+            <h2>Descripcion noticia</h2>
+            <div class="centro">
+              <textarea
+                name="message"
+                rows="4"
+                cols="30"
+                maxlength="1000"
+                [(ngModel)]="noticia.texto"
+              ></textarea>
+            </div>
+            <br />
+            <div class="centro">
+              <button class="btn">Subir</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div
+        class="centro"
+        *ngIf="noticia.texto != '' && noticia.titulo != ''; else other_content"
+      >
+        <div class="card noticia">
+          <div class="row">
+            <div class="col-4 fotoYnombre">
+              <img
+                *ngIf="usuario.foto == ''; else fotoBD"
+                src="assets/defaultProfile.png"
+              />
+
+              <ng-template #fotoBD>
+                <img src="{{ urlFotos }}{{ usuario.foto }}" />
+              </ng-template>
+              daniel
+            </div>
+          </div>
+          <div class="row">
+            <div class="row">
+              <h2 class="tituloNoticia">{{ noticia.titulo }}</h2>
+            </div>
+            <div class="row">
+              <h3 class="tituloNoticia texto">{{ noticia.texto }}</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <h4 class="fecha">{{ noticia.fecha }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #other_content></ng-template>
+    </div>
+  </body>
+</html>

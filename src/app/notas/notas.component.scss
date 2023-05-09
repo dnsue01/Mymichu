@@ -113,12 +113,16 @@ textarea {
   scrollbar-width: none;
 }
 .long-text {
-  word-wrap: break-word;
+  height: 5vh;
+  overflow-x: hidden;
   font-family: "Oswald", sans-serif;
+}
+::-webkit-scrollbar:window-inactive {
+  display: none;
 }
 
 .scroll {
-  height: 50vh;
+  height: 70vh;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: calc(100vh - 200px);
@@ -152,6 +156,9 @@ textarea {
   .btn {
     margin-top: 0;
   }
+  .scroll {
+    height: 60vh;
+  }
 }
 
 @media only screen and (max-width: 576px) {
@@ -169,6 +176,9 @@ textarea {
     width: 100%;
     text-align: center;
     max-height: 20vh;
+  }
+  .scroll {
+    height: 60vh;
   }
 }
 
