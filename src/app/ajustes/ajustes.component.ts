@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConexionPhpService } from '../conexion-php.service';
 
-
 import Swal from 'sweetalert2';
 //para hacer la llamada de subir
 import { HttpClient } from '@angular/common/http';
@@ -11,49 +10,51 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-ajustes',
   templateUrl: './ajustes.component.html',
-  styleUrls: ['./ajustes.component.scss']
+  styleUrls: ['./ajustes.component.scss'],
 })
 export class AjustesComponent {
-  constructor(private rutaActiva: ActivatedRoute, private http: HttpClient, private ConexionPhpService: ConexionPhpService) { }
+  constructor(
+    private rutaActiva: ActivatedRoute,
+    private http: HttpClient,
+    private ConexionPhpService: ConexionPhpService
+  ) {}
 
+  ulrFotos = 'http://localhost/';
   usuario = {
-    correo: "",
-    nombre: "",
-    apellidos: "",
-    sexo: "",
-    fecha: "",
-    id: "",
-    nombreUsuario: "",
-    foto: "",
-    nuevoCorreo: "",
-    contrasenna: "",
-    contrasennaConfirmacion: ""
-  }
+    correo: '',
+    nombre: '',
+    apellidos: '',
+    sexo: '',
+    fecha: '',
+    id: '',
+    nombreUsuario: '',
+    foto: '',
+    nuevoCorreo: '',
+    contrasenna: '',
+    contrasennaConfirmacion: '',
+  };
   //paso el id del usuario y guado la extension y el nombre del archivo
   idYFoto = {
-    id: "",
-    nombre: "",
-    extension: ""
-  }
+    id: '',
+    nombre: '',
+    extension: '',
+  };
   //archivo
   nombreArchivo = '';
-  ngOnInit() {
 
+  ngOnInit() {
     // Subscribe to the queryParams observable
-    this.rutaActiva.queryParams.subscribe(params => {
-      this.usuario.id = params["id"];
+    this.rutaActiva.queryParams.subscribe((params) => {
+      this.usuario.id = params['id'];
     });
 
-    this.recuperarFoto();
-    this.recuperarUsuario();
+    this.comprobarAtleta();
   }
-
-
 
   //subir la foto
   myForm = new FormGroup({
     file: new FormControl('', [Validators.required]),
-    fileSource: new FormControl('', [Validators.required])
+    fileSource: new FormControl('', [Validators.required]),
   });
 
   onFileSelected(event: any) {
@@ -61,17 +62,20 @@ export class AjustesComponent {
     const file: File = event.target.files[0];
 
     if (file) {
-      if (this.usuario.foto != "") {
-        this.BorarFoto()
+      if (this.usuario.foto != '') {
+        this.BorarFoto();
       }
       //nombre del archivo
       this.nombreArchivo = file.name;
       //formato
       const formData = new FormData();
 
-      formData.append("thumbnail", file);
+      formData.append('thumbnail', file);
       //subir el archivo al php
-      const upload$ = this.http.post("http://localhost/michu/subirFotos.php", formData);
+      const upload$ = this.http.post(
+        this.ulrFotos + 'michu/subirFotos.php',
+        formData
+      );
 
       upload$.subscribe();
     }
@@ -83,11 +87,10 @@ export class AjustesComponent {
   }
   //cuando cambia el input del archivo
   onFileChange(event: any) {
-
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.myForm.patchValue({
-        fileSource: file
+        fileSource: file,
       });
     }
   }
@@ -100,114 +103,117 @@ export class AjustesComponent {
       formData.append('file', file);
     }
 
-
-    this.http.post('http://localhost/michu/subirFotos.php', formData)
+    this.http
+      .post(this.ulrFotos + 'michu/subirFotos.php', formData)
       .subscribe((datos: any) => {
-
-
-
         if (datos['mensaje']) {
-
           //recoger el nombre de la foto y el id del usuario
-          this.idYFoto.id = this.usuario.id
-          this.idYFoto.nombre = datos['id']
-          this.idYFoto.extension = datos['nombreCompleto']
+          this.idYFoto.id = this.usuario.id;
+          this.idYFoto.nombre = datos['id'];
+          this.idYFoto.extension = datos['nombreCompleto'];
           this.usuario.foto = this.idYFoto.extension;
           //una vez recogido mando todos estos datos a la bd
+
           this.ActualizarFoto();
-
         } else {
-
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'no se pueden subir archivos de este tipo',
-          })
+          });
         }
-
-      })
+      });
   }
 
-
   ActualizarFoto() {
-
-    this.ConexionPhpService.ActualizarFoto(this.idYFoto).subscribe((datos: any) => {
-      if (datos['resultado'] == 'OK') {
-        Swal.fire({
-          icon: 'success',
-          title: 'Foto actualizada correctamente',
-          showConfirmButton: false,
-          timer: 700
-        })
+    this.ConexionPhpService.ActualizarFoto(this.idYFoto).subscribe(
+      (datos: any) => {
+        if (datos['resultado'] == 'OK') {
+          Swal.fire({
+            icon: 'success',
+            title: 'Foto actualizada correctamente',
+            showConfirmButton: false,
+            timer: 700,
+          });
+        }
       }
-    })
+    );
   }
 
   //recogo la foto de la bd
   recuperarFoto() {
-    this.ConexionPhpService.RecuperarFoto(this.usuario.id).subscribe((datos: any) => {
-      this.usuario.foto = datos['mensaje']
-      if (!this.usuario.foto) {
-        this.usuario.foto = ""
+    this.ConexionPhpService.RecuperarFoto(this.usuario.id).subscribe(
+      (datos: any) => {
+        this.usuario.foto = datos['mensaje'];
+        if (!this.usuario.foto) {
+          this.usuario.foto = '';
+        }
       }
-    })
+    );
   }
 
   BorarFoto() {
-
-    this.ConexionPhpService.BorrarFoto(this.usuario).subscribe((datos: any) => { })
+    this.ConexionPhpService.BorrarFoto(this.usuario).subscribe(
+      (datos: any) => {}
+    );
   }
 
   //recuperar el usuario de la bd
   recuperarUsuario() {
-
-    this.ConexionPhpService.recuperarUsuario(this.usuario.id).subscribe((datos: any) => {
-
-      this.usuario.nombre = datos[1];
-      this.usuario.apellidos = datos[2];
-      this.usuario.sexo = datos[3] == 1 ? "Masculino" : "Femenino";
-      this.usuario.fecha = datos[4];
-      this.usuario.nombreUsuario = datos[6];
-      this.usuario.correo = datos[7];
-    });
+    this.ConexionPhpService.recuperarUsuario(this.usuario.id).subscribe(
+      (datos: any) => {
+        this.usuario.nombre = datos[1];
+        this.usuario.apellidos = datos[2];
+        this.usuario.sexo = datos[3] == 1 ? 'Masculino' : 'Femenino';
+        this.usuario.fecha = datos[4];
+        this.usuario.nombreUsuario = datos[6];
+        this.usuario.correo = datos[7];
+      }
+    );
   }
 
-
-  ComprobarCorreo() {
-
-    this.ConexionPhpService.ComprobarCorreo(this.usuario.nuevoCorreo).subscribe((datos: any) => {
-      if (datos['resultado'] == 'OK') {
-
-        if (datos['mensaje']) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Este correo ya esta en uso',
-          })
-          return;
-        }
-        this.actualizarCorreo();
-
+  //recuperar el usuario de la bd
+  recuperarEntrenador() {
+    this.ConexionPhpService.recuperarEntrenador(this.usuario.id).subscribe(
+      (datos: any) => {
+        this.usuario.correo = datos[2] != null ? datos[2] : '';
+        this.usuario.foto = datos[1];
       }
-    });
-
-
-
+    );
+  }
+  ComprobarCorreo() {
+    this.ConexionPhpService.ComprobarCorreo(this.usuario.nuevoCorreo).subscribe(
+      (datos: any) => {
+        if (datos['resultado'] == 'OK') {
+          if (datos['mensaje']) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Este correo ya esta en uso',
+            });
+            return;
+          }
+          this.actualizarCorreo();
+        }
+      }
+    );
   }
 
   actualizarCorreo() {
-    this.ConexionPhpService.actualizarCorreo(this.usuario).subscribe((datos: any) => {
-      if (datos['resultado'] == 'OK') {
-        Swal.fire({
-          icon: 'success',
-          title: 'Correo actualizado correctamente',
-          showConfirmButton: false,
-          timer: 700
-        })
-        this.usuario.correo = this.usuario.nuevoCorreo
-        this.usuario.nuevoCorreo = ""
+    this.ConexionPhpService.actualizarCorreo(this.usuario).subscribe(
+      (datos: any) => {
+        if (datos['resultado'] == 'OK') {
+          Swal.fire({
+            icon: 'success',
+            title: 'Correo actualizado correctamente',
+            showConfirmButton: false,
+            timer: 700,
+          });
+          this.usuario.correo = this.usuario.nuevoCorreo;
+          this.usuario.nuevoCorreo = '';
+        }
       }
-    });
+    );
   }
 
   cambiarCorreo() {
@@ -216,7 +222,7 @@ export class AjustesComponent {
         icon: 'error',
         title: 'Oops...',
         text: 'El campo del nuevo correo esta vacio',
-      })
+      });
       return;
     }
     if (this.usuario.nuevoCorreo === this.usuario.correo) {
@@ -224,7 +230,7 @@ export class AjustesComponent {
         icon: 'error',
         title: 'Oops...',
         text: 'No puedes poner el mismo correo',
-      })
+      });
       return;
     }
 
@@ -236,7 +242,7 @@ export class AjustesComponent {
       });
       return;
     }
-    this.ComprobarCorreo()
+    this.ComprobarCorreo();
   }
   validarcorreo(correo: any) {
     //Cualquier string un @ cualquier string un . y finalmente cualquier string
@@ -253,7 +259,11 @@ export class AjustesComponent {
       });
       return;
     }
-    if (!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])(?=.*[^\dA-Za-z]).{5,}$/.test(this.usuario.contrasenna)) {
+    if (
+      !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])(?=.*[^\dA-Za-z]).{5,}$/.test(
+        this.usuario.contrasenna
+      )
+    ) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -270,43 +280,54 @@ export class AjustesComponent {
       return;
     }
     this.comprobarContrasennaBD();
-
   }
-
 
   comprobarContrasennaBD() {
-    this.ConexionPhpService.comprobarContrasenna(this.usuario).subscribe((datos: any) => {
-      if (datos['resultado'] == 'OK') {
-        if (datos["mesaje"]) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'No se pudo cambiar por que la contraseña es la misma',
-          });
-          return;
+    this.ConexionPhpService.comprobarContrasenna(this.usuario).subscribe(
+      (datos: any) => {
+        if (datos['resultado'] == 'OK') {
+          if (datos['mesaje']) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'No se pudo cambiar por que la contraseña es la misma',
+            });
+            return;
+          }
+          this.actualizarContrasenna();
         }
-        this.actualizarContrasenna()
-
       }
-    });
+    );
   }
 
-  actualizarContrasenna(){
-
-      this.ConexionPhpService.actualizarContrasenna(this.usuario).subscribe((datos: any) => {
+  actualizarContrasenna() {
+    this.ConexionPhpService.actualizarContrasenna(this.usuario).subscribe(
+      (datos: any) => {
         if (datos['resultado'] == 'OK') {
           Swal.fire({
             icon: 'success',
             title: 'La contraseña se  actualizado correctamente',
             showConfirmButton: false,
-            timer: 700
-          })
-          this.usuario.contrasenna = ""
-          this.usuario.contrasennaConfirmacion = ""
+            timer: 700,
+          });
+          this.usuario.contrasenna = '';
+          this.usuario.contrasennaConfirmacion = '';
         }
-      });
-    }
-  
+      }
+    );
+  }
+
+  comprobarAtleta() {
+    this.ConexionPhpService.comprobarAtleta(this.usuario.id).subscribe(
+      (datos: any) => {
+        //devuelve true si es atleta false si es un entrenador
+        if (datos['mensaje']) {
+          this.recuperarFoto();
+          this.recuperarUsuario();
+        } else {
+          this.recuperarEntrenador();
+        }
+      }
+    );
+  }
 }
-
-

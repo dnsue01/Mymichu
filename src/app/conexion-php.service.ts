@@ -149,4 +149,14 @@ export class ConexionPhpService {
       JSON.stringify(id)
     );
   }
+
+  comprobarAtleta(id: any) {
+    return this.http.post(`${this.url}comprobarAtleta.php`, JSON.stringify(id));
+  }
+  recuperarEntrenador(id: any) {
+    return this.http.post(
+      `${this.url}recuperarEntrenador.php`,
+      JSON.stringify(id)
+    );
+  }
 }

@@ -27,6 +27,8 @@ import { MatListModule } from '@angular/material/list';
 import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar-usuarios.component';
 import { CrearEntrenadoresComponent } from './crear-entrenadores/crear-entrenadores.component';
 import { GestionarMarcasComponent } from './gestionar-marcas/gestionar-marcas.component';
+import { EntrenadoresComponent } from './entrenadores/entrenadores.component';
+import { BarraEntrenadorComponent } from './barra-entrenador/barra-entrenador.component';
 
 
 
@@ -45,7 +47,9 @@ import { GestionarMarcasComponent } from './gestionar-marcas/gestionar-marcas.co
     BarraLateralComponent,
     AdministrarUsuariosComponent,
     CrearEntrenadoresComponent,
-    GestionarMarcasComponent
+    GestionarMarcasComponent,
+    EntrenadoresComponent,
+    BarraEntrenadorComponent
 
   ],
   imports: [

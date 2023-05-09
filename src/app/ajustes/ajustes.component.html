@@ -73,24 +73,24 @@
                 Cambiar
               </button>
 
-              <h1>Escribe tu antigua contraseña</h1>
-              <input
-                class="form-control"
-                type="password"
-                name=""
-                id="contrasenna"
-                placeholder="Antigua contraseña"
-                [(ngModel)]="usuario.contrasenna"
-              />
-
-              <br />
               <h1>Escribe tu nueva contraseña</h1>
               <input
                 class="form-control"
                 type="password"
                 name=""
-                id="contrasennaConfirmacion"
+                id="contrasenna"
                 placeholder="Nueva contraseña"
+                [(ngModel)]="usuario.contrasenna"
+              />
+
+              <br />
+              <h1>Repite tu nueva contraseña</h1>
+              <input
+                class="form-control"
+                type="password"
+                name=""
+                id="contrasennaConfirmacion"
+                placeholder="Repite tu nueva contraseña"
                 [(ngModel)]="usuario.contrasennaConfirmacion"
               />
 
