@@ -10,6 +10,7 @@ import { AjustesComponent } from './ajustes/ajustes.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { NotasComponent } from './notas/notas.component';
 import { ResultadosComponent } from './resultados/resultados.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { CrearEntrenadoresComponent } from './crear-entrenadores/crear-entrenadores.component';
 import { GestionarMarcasComponent } from './gestionar-marcas/gestionar-marcas.component';
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: 'perfil', component: PerfilComponent },
       { path: 'notas', component: NotasComponent },
       { path: 'resultados', component: ResultadosComponent },
+      { path: 'dashboard', component: DashboardComponent },
     ],
   },
   //entrenadores

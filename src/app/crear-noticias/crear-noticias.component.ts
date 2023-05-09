@@ -57,4 +57,40 @@ export class CrearNoticiasComponent {
       }
     );
   }
+
+  subirNoticia() {
+    if (!this.noticia.texto) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se puede subir una nota vacia',
+      });
+      return;
+    }
+    if (!this.noticia.titulo) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No se puede subir una noticia sin titulo',
+      });
+      return;
+    }
+
+    this.insertarNoticia();
+  }
+
+  insertarNoticia() {
+    this.ConexionPhpService.insertarNoticia(this.noticia).subscribe(
+      (datos: any) => {
+        if (datos['resultado'] == 'OK') {
+          Swal.fire({
+            icon: 'success',
+            title: 'Noticia subida correctamente',
+            showConfirmButton: false,
+            timer: 700,
+          });
+        }
+      }
+    );
+  }
 }

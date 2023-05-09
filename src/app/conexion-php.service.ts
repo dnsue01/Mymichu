@@ -159,4 +159,10 @@ export class ConexionPhpService {
       JSON.stringify(id)
     );
   }
+  insertarNoticia(nota: any) {
+    return this.http.post(
+      `${this.url}insertarNoticia.php`,
+      JSON.stringify(nota)
+    );
+  }
 }

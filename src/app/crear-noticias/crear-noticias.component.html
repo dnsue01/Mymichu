@@ -36,7 +36,7 @@
             </div>
             <br />
             <div class="centro">
-              <button class="btn">Subir</button>
+              <button class="btn" (click)="subirNoticia()">Subir</button>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@
               <ng-template #fotoBD>
                 <img src="{{ urlFotos }}{{ usuario.foto }}" />
               </ng-template>
-              daniel
+              {{ usuario.nombre }}
             </div>
           </div>
           <div class="row">

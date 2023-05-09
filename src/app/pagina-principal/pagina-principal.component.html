@@ -1,59 +1,60 @@
 <router-outlet></router-outlet>
 
-
 <mat-toolbar class="toolbarNav">
+  <button
+    mat-flat-button
+    (click)="dashboard(usuario['id'])"
+    [class.isActive]="activeButton === 'noticias'"
+    [class.isInactive]="activeButton !== 'noticias'"
+    (click)="activeButton = 'noticias'"
+  >
+    <mat-icon class="material-icons color_blue">dashboard</mat-icon>
+  </button>
 
-  <button mat-flat-button
-  routerLink="/top-tracks"
-  [class.isActive]="activeButton === 'noticias'"
-  [class.isInactive]="activeButton !== 'noticias'"
-  (click)="activeButton = 'noticias'">
-<mat-icon class="material-icons color_blue">dashboard</mat-icon>
+  <button
+    mat-flat-button
+    (click)="notas(usuario['id'])"
+    [class.isActive]="activeButton === 'notas'"
+    [class.isInactive]="activeButton !== 'notas'"
+    (click)="activeButton = 'notas'"
+  >
+    <mat-icon class="material-icons color_blue">note_add</mat-icon>
+  </button>
 
-</button>
+  <button
+    mat-flat-button
+    (click)="resultados(usuario['id'])"
+    [class.isActive]="activeButton === 'resultados'"
+    [class.isInactive]="activeButton !== 'resultados'"
+    (click)="activeButton = 'resultados'"
+  >
+    <mat-icon class="material-icons color_blue">poll</mat-icon>
+  </button>
 
+  <button
+    mat-flat-button
+    (click)="ajustes(usuario['id'])"
+    [class.isActive]="activeButton === 'ajustes'"
+    [class.isInactive]="activeButton !== 'ajustes'"
+    (click)="activeButton = 'ajustes'"
+  >
+    <mat-icon class="material-icons color_blue">settings</mat-icon>
+  </button>
 
+  <button
+    mat-flat-button
+    (click)="perfil(usuario['id'])"
+    [class.isActive]="activeButton === 'perfil'"
+    [class.isInactive]="activeButton !== 'perfil'"
+    (click)="activeButton = 'perfil'"
+  >
+    <img
+      *ngIf="usuario.foto === ''; else fotoBD"
+      src="assets/defaultProfile.png"
+    />
 
-<button mat-flat-button
-  (click)="notas(usuario['id'])"
-  [class.isActive]="activeButton === 'notas'"
-  [class.isInactive]="activeButton !== 'notas'"
-  (click)="activeButton = 'notas'">
-<mat-icon class="material-icons color_blue">note_add</mat-icon>
-
-</button>
-
-
-<button mat-flat-button
-  (click)="resultados(usuario['id'])"
-  [class.isActive]="activeButton === 'resultados'"
-  [class.isInactive]="activeButton !== 'resultados'"
-  (click)="activeButton = 'resultados'">
-<mat-icon class="material-icons color_blue">poll</mat-icon>
-
-</button>
-
-<button mat-flat-button
-  (click)="ajustes(usuario['id'])"
-  [class.isActive]="activeButton === 'ajustes'"
-  [class.isInactive]="activeButton !== 'ajustes'"
-  (click)="activeButton = 'ajustes'">
-<mat-icon class="material-icons color_blue">settings</mat-icon>
-
-</button>
-
-<button mat-flat-button
-  (click)="perfil(usuario['id'])"
-  [class.isActive]="activeButton === 'perfil'"
-  [class.isInactive]="activeButton !== 'perfil'"
-  (click)="activeButton = 'perfil'">
-<img *ngIf="usuario.foto === ''; else fotoBD" src="assets/defaultProfile.png">
-
-<ng-template #fotoBD>
-<img src="{{urlFotos}}{{usuario.foto}}">
-</ng-template>
-
-</button>
-
-
+    <ng-template #fotoBD>
+      <img src="{{ urlFotos }}{{ usuario.foto }}" />
+    </ng-template>
+  </button>
 </mat-toolbar>
