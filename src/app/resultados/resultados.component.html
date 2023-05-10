@@ -85,6 +85,9 @@
 
               <div class="row centro">
                 <div class="card pequeña">
+                  <div *ngIf="pruebaYAtleta.prueba == ''">
+                    <h1>Selecciona una prueba para ver tu progreso</h1>
+                  </div>
                   <canvas #myChart></canvas>
                 </div>
               </div>
@@ -99,7 +102,13 @@
                         <th scope="col"></th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody
+                      *ngIf="
+                        marcasYfechas != undefined &&
+                          marcasYfechas?.length != 0;
+                        else other_content
+                      "
+                    >
                       <tr *ngFor="let marcaYfecha of marcasYfechas">
                         <td>{{ marcaYfecha.fecha }}</td>
                         <td>
@@ -114,6 +123,14 @@
                         </td>
                       </tr>
                     </tbody>
+
+                    <ng-template #other_content>
+                      <tbody>
+                        <tr>
+                          <td colspan="3">No hay marcas para esta prueba</td>
+                        </tr>
+                      </tbody>
+                    </ng-template>
                   </table>
                 </div>
               </div>

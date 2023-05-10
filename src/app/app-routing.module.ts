@@ -30,7 +30,7 @@ const routes: Routes = [
     path: 'principal/:id',
     component: PaginaPrincipalComponent,
     children: [
-      { path: '', component: ResultadosComponent, pathMatch: 'full' },
+      { path: '', component: DashboardComponent, pathMatch: 'full' },
       { path: 'ajustes', component: AjustesComponent },
       { path: 'perfil', component: PerfilComponent },
       { path: 'notas', component: NotasComponent },
