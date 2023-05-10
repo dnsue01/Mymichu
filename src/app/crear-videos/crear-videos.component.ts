@@ -68,7 +68,6 @@ export class CrearVideosComponent {
       });
       return;
     }
-    console.log(await this.comprobarLink());
 
     this.recortarVideo();
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -76,6 +75,7 @@ export class CrearVideosComponent {
     );
 
     this.videoCorrecto = true;
+    this.insertarVideo();
   }
 
   recortarVideo() {
@@ -146,5 +146,20 @@ export class CrearVideosComponent {
     }
 
     return videoId;
+  }
+
+  insertarVideo() {
+    this.ConexionPhpService.insertarVideo(this.video).subscribe(
+      (datos: any) => {
+        if (datos['resultado'] == 'OK') {
+          Swal.fire({
+            icon: 'success',
+            title: 'video subido correctamente',
+            showConfirmButton: false,
+            timer: 700,
+          });
+        }
+      }
+    );
   }
 }

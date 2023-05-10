@@ -168,4 +168,13 @@ export class ConexionPhpService {
   recogerNoticias() {
     return this.http.get(`${this.url}recogerNoticias.php`);
   }
+  insertarVideo(video: any) {
+    return this.http.post(
+      `${this.url}insertarVideo.php`,
+      JSON.stringify(video)
+    );
+  }
+  recogerVideos() {
+    return this.http.get(`${this.url}recogerVideos.php`);
+  }
 }

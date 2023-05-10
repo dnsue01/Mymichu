@@ -46,6 +46,16 @@
           </div>
         </div>
       </div>
+
+      <div class="row">
+        <div class="centro">
+          <div class="card video" *ngFor="let video of videos">
+            <h1>{{ video.titulo }}</h1>
+
+            <iframe [src]="video.url" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
