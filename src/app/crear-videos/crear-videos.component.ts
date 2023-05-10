@@ -76,6 +76,8 @@ export class CrearVideosComponent {
 
     this.videoCorrecto = true;
     this.insertarVideo();
+    this.video.url = '';
+    this.video.titulo = '';
   }
 
   recortarVideo() {

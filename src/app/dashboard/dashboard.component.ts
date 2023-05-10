@@ -15,6 +15,7 @@ export class DashboardComponent {
 
   noticias: any;
   videos: any;
+  palabraBuscada: any;
   urlFotos = 'http://localhost/michu/contenido/';
   constructor(
     private ConexionPhpService: ConexionPhpService,
@@ -48,5 +49,29 @@ export class DashboardComponent {
   }
   getSafeUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+
+  buscarVideos() {
+    console.log(this.palabraBuscada);
+
+    this.ConexionPhpService.buscarVideos(this.palabraBuscada).subscribe(
+      (datos: any) => {
+        let videosN = [];
+        for (let index = 0; index < datos.length; index++) {
+          const url = datos[index][2];
+          let videoUrl = this.getSafeUrl(url);
+
+          let video = {
+            id: datos[index][0],
+            id_entrenador: datos[index][1],
+            url: videoUrl,
+            titulo: datos[index][3],
+          };
+
+          videosN.push(video);
+        }
+        this.videos = videosN;
+      }
+    );
   }
 }

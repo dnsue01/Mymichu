@@ -177,4 +177,7 @@ export class ConexionPhpService {
   recogerVideos() {
     return this.http.get(`${this.url}recogerVideos.php`);
   }
+  buscarVideos(video: any) {
+    return this.http.post(`${this.url}buscarVideos.php`, JSON.stringify(video));
+  }
 }

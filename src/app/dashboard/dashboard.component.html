@@ -46,12 +46,23 @@
           </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="centro">
-          <div class="card video" *ngFor="let video of videos">
-            <h1>{{ video.titulo }}</h1>
-
+      <br />
+      <div class="centro">
+        <input
+          class="form-control buscador"
+          type="text"
+          name="text"
+          id="text"
+          placeholder="Busca un ejercicio"
+          [(ngModel)]="palabraBuscada"
+          (keyup)="buscarVideos()"
+        />
+      </div>
+      <br />
+      <div class="centro grid-container">
+        <div class="card video grid-item" *ngFor="let video of videos">
+          <h1>{{ video.titulo }}</h1>
+          <div class="centro">
             <iframe [src]="video.url" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
