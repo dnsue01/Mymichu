@@ -74,6 +74,7 @@ export class CrearVideosComponent {
     this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
       this.video.url
     );
+
     this.videoCorrecto = true;
   }
 
