@@ -45,15 +45,10 @@
       </div>
       <br />
       <div class="centro">
-        <div class="card video">
-          <h1>Press banca</h1>
+        <div class="card video" *ngIf="videoCorrecto">
+          <h1>{{ video.titulo }}</h1>
 
-          <iframe
-            *ngIf="videoCorrecto"
-            [src]="safeUrl"
-            frameborder="0"
-            allowfullscreen
-          ></iframe>
+          <iframe [src]="safeUrl" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
     </div>
