@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="centro">
+      <div class="centro" *ngIf="noticias.length > 0">
         <div class="noticias">
           <div class="card noticia" *ngFor="let noticia of noticias">
             <div class="row">
