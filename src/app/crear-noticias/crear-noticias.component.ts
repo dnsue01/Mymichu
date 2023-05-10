@@ -14,6 +14,7 @@ export class CrearNoticiasComponent {
 
     private ConexionPhpService: ConexionPhpService
   ) {}
+
   ngOnInit() {
     // Subscribe to the queryParams observable
     this.rutaActiva.queryParams.subscribe((params) => {
@@ -23,7 +24,7 @@ export class CrearNoticiasComponent {
     this.changeFormat();
     this.recuperarEntrenador();
   }
-
+  urlFotos = 'http://localhost/michu/contenido/';
   today = new Date();
   pipe = new DatePipe('en-US');
 
@@ -40,7 +41,7 @@ export class CrearNoticiasComponent {
     correo: '',
     foto: '',
   };
-  urlFotos = 'http://localhost/michu/contenido/';
+
   changeFormat() {
     let ChangedFormat = this.pipe.transform(this.today, 'dd/MM/YYYY');
     let fecha2 = ChangedFormat?.toString()!;

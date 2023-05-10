@@ -1,0 +1,76 @@
+.video {
+  width: 33%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  background-color: black;
+}
+.video h1 {
+  margin-top: 2%;
+  text-align: center;
+  color: white;
+}
+iframe {
+  height: 30vh;
+}
+.centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.crearVideo {
+  width: 50%;
+  height: 30vh;
+}
+input {
+  width: 80%;
+}
+.btn {
+  margin-top: 0.1vh;
+  background-color: #02ca84;
+  color: white;
+}
+.crearVideo h1,
+h2,
+h4 {
+  margin-left: 1%;
+}
+
+@media only screen and (max-width: 768px) {
+  .video {
+    width: 90%;
+  }
+  .crearVideo {
+    width: 90%;
+    height: 35vh;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .video {
+    width: 90%;
+  }
+  .crearVideo {
+    width: 90%;
+    height: 35vh;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .video {
+    width: 90%;
+  }
+  .crearVideo {
+    width: 90%;
+    height: 35vh;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .video {
+    width: 90%;
+  }
+  .crearVideo {
+    width: 90%;
+    height: 40vh;
+  }
+}

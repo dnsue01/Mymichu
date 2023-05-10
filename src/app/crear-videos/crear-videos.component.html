@@ -1,1 +1,61 @@
-<p>crear-videos works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <div class="row">
+        <div class="centro">
+          <div class="card crearVideo">
+            <h2>Titulo video</h2>
+            <div class="form-group">
+              <div class="centro">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titulo"
+                  placeholder="Titulo del video"
+                  [(ngModel)]="video.titulo"
+                />
+              </div>
+
+              <br />
+              <h2>Url del video</h2>
+              <div class="centro">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="titulo"
+                  placeholder="Copia el video de youtube en el boton de compartir"
+                  [(ngModel)]="video.url"
+                />
+              </div>
+              <br />
+              <div class="centro">
+                <button class="btn" (click)="subirVideo()">Subir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="centro">
+        <div class="card video">
+          <h1>Press banca</h1>
+
+          <iframe
+            *ngIf="videoCorrecto"
+            [src]="safeUrl"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
