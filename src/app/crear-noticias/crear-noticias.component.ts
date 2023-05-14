@@ -24,7 +24,7 @@ export class CrearNoticiasComponent {
     this.changeFormat();
     this.recuperarEntrenador();
   }
-  urlFotos = 'http://localhost/michu/contenido/';
+  urlFotos = 'http://michuapp.uberelectronnetwork.cc:8091/michu/contenido/';
   today = new Date();
   pipe = new DatePipe('en-US');
 

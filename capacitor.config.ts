@@ -4,7 +4,9 @@ const config: CapacitorConfig = {
   appId: 'com.mymichu.app',
   appName: 'mymichu',
   webDir: 'dist/mymichu',
-  bundledWebRuntime: false
+  server: {
+    androidScheme: 'http'
+  }
 };
 
 export default config;

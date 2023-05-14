@@ -16,7 +16,7 @@ export class DashboardComponent {
   noticias: any;
   videos: any;
   palabraBuscada: any;
-  urlFotos = 'http://localhost/michu/contenido/';
+  urlFotos = 'http://michuapp.uberelectronnetwork.cc:8091/michu/contenido/';
   constructor(
     private ConexionPhpService: ConexionPhpService,
     private sanitizer: DomSanitizer

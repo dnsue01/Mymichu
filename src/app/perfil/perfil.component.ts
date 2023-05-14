@@ -23,7 +23,7 @@ export class PerfilComponent {
   }
 
   nombreArchivo = '';
-  urlFotos = 'http://localhost/michu/contenido/';
+  urlFotos = 'http://michuapp.uberelectronnetwork.cc:8091/michu/contenido/';
 
 
   ngOnInit() {
