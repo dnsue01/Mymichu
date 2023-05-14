@@ -73,7 +73,7 @@ export class AjustesComponent {
       formData.append('thumbnail', file);
       //subir el archivo al php
       const upload$ = this.http.post(
-        this.ulrFotos + 'michu/subirFotos.php',
+        this.ulrFotos + 'subirFotos.php',
         formData
       );
 
@@ -104,7 +104,7 @@ export class AjustesComponent {
     }
 
     this.http
-      .post(this.ulrFotos + 'michu/subirFotos.php', formData)
+      .post(this.ulrFotos + 'subirFotos.php', formData)
       .subscribe((datos: any) => {
         if (datos['mensaje']) {
           //recoger el nombre de la foto y el id del usuario

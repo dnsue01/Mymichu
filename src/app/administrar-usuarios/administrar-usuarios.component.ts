@@ -15,7 +15,7 @@ export class AdministrarUsuariosComponent {
 
   atletas: any;
   entrenadores: any;
-  urlFotos = 'http://localhost/michu/contenido/';
+  urlFotos = 'http://michuapp.uberelectronnetwork.cc:8091/michu/contenido/';
 
   ngOnInit() {
     this.recuperarAltetas();

@@ -6,7 +6,7 @@
 body {
   min-height: 100vh;
   background-color: #02ca84;
-  color: white;
+  color: rgb(255, 255, 255);
   font-family: "Oswald", sans-serif;
 }
 h1,
@@ -48,7 +48,7 @@ img {
 .noticia {
   border-radius: 0%;
   height: 20vh;
-
+  color: rgb(128, 128, 128);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
