@@ -18,8 +18,9 @@ export class AjustesComponent {
     private http: HttpClient,
     private ConexionPhpService: ConexionPhpService
   ) {}
-
+  // ulrFotos = 'http://localhost/michu/';
   ulrFotos = 'http://michuapp.uberelectronnetwork.cc:8091/michu/';
+  
   usuario = {
     correo: '',
     nombre: '',

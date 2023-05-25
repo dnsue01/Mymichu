@@ -17,6 +17,7 @@ export class DashboardComponent {
   videos: any;
   palabraBuscada: any;
   urlFotos = 'http://michuapp.uberelectronnetwork.cc:8091/michu/contenido/';
+  
   constructor(
     private ConexionPhpService: ConexionPhpService,
     private sanitizer: DomSanitizer
@@ -52,7 +53,7 @@ export class DashboardComponent {
   }
 
   buscarVideos() {
-    console.log(this.palabraBuscada);
+
 
     this.ConexionPhpService.buscarVideos(this.palabraBuscada).subscribe(
       (datos: any) => {

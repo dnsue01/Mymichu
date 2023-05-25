@@ -24,7 +24,7 @@ export class PerfilComponent {
 
   nombreArchivo = '';
   urlFotos = 'http://michuapp.uberelectronnetwork.cc:8091/michu/contenido/';
-
+  //urlFotos = 'http://localhost/michu/contenido/';
 
   ngOnInit() {
     // Subscribe to the queryParams observable

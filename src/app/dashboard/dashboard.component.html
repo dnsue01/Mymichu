@@ -18,7 +18,7 @@
             <div class="row">
               <div class="col-4 fotoYnombre">
                 <img
-                  *ngIf="noticia.foto_perfil == ''; else fotoBD"
+                  *ngIf="noticia.foto_perfil == null; else fotoBD"
                   src="assets/defaultProfile.png"
                 />
 

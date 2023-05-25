@@ -17,6 +17,7 @@ export class PaginaPrincipalComponent {
 
   nombreArchivo = '';
   urlFotos = 'http://michuapp.uberelectronnetwork.cc:8091/michu/contenido/';
+ // urlFotos = 'http://localhost/michu/contenido/';
 
   usuario = {
     correo: '',
