@@ -78,14 +78,14 @@ export class RegistroSesionComponent {
     }
 
     if (
-      !/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+])(?=.*[^\dA-Za-z]).{5,}$/.test(
+      !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/.test(
         this.usuario.contrasenna
       )
     ) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'La contraseña no cumple con nuestras normas por lo menos tiene que tener 5 caracteres ,una letra mayuscula , una minuscula y un signo especial. Un ejemplo: Sinestesia1!',
+        text: 'La contraseña no cumple con nuestras normas por ,que no tiene una longitud mínima de 8 caracteres ,o al menos una letra minúscula, o al menos una letra mayúscula, al menos un dígito.. Un ejemplo: Mymichu!',
       });
       return;
     }
