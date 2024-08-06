@@ -1,8 +1,10 @@
-# 🌐 Mymichu
+# 🐻 Mymichu
 
-Mymichu is an online platform designed to manage and enhance the activities of athletes and coaches in the field of athletics.
-It leverages various technologies to provide a comprehensive solution for communication, tracking, and organizing training-related activities and performance metrics.
-Originally developed as a web application using Angular, it has been ported to Android using Capacitor to maintain consistent functionality across platforms.
+-Mymichu is an online platform designed to manage and enhance the activities of athletes and coaches in the field of athletics.
+
+-It leverages various technologies to provide a comprehensive solution for communication, tracking, and organizing training-related activities and performance metrics.
+
+-Originally developed as a web application using Angular, it has been ported to Android using Capacitor to maintain consistent functionality across platforms.
 
 ## 📚 Technologies Used
 
@@ -19,7 +21,7 @@ Originally developed as a web application using Angular, it has been ported to A
 
 ## 📦 Installation
 
-### Angular
+### 💻 Angular
 1. Clone the repository:
    ```bash
    git clone https://github.com/dnsue01/Mymichu.git
@@ -27,7 +29,7 @@ Originally developed as a web application using Angular, it has been ported to A
    npm ng serve Mymichu
    ```
 
-### Android
+### 📳 Android
 
 -**Open in Android Studio**:
 
