@@ -6,16 +6,16 @@ Originally developed as a web application using Angular, it has been ported to A
 
 ## 📚 Technologies Used
 
-- **Angular**: 
-- **Java (Android)**: 
-- **SQL**: 
-- **PHP**: 
-- **Bootstrap**: 
-- **Capacitor**:
-- **SweetAlert**:
-- **Chart.js**:
-- **YouTube API**: 
-- **Angular Material**
+🔗**Angular** 
+🔗**Java (Android)**
+🔗**SQL**
+🔗**PHP**
+🔗**Bootstrap**
+🔗**Capacitor**
+🔗**SweetAlert**
+🔗**Chart.js**
+🔗**YouTube API** 
+🔗**Angular Material**
 
 ## 📦 Installation
 
