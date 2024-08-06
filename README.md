@@ -31,11 +31,11 @@
 
 ### 📳 Android
 
--**Open in Android Studio**:
+  1. **Open in Android Studio**:
 
--**Go to File**> Open and select the project directory.
+  2. **Go to File**> Open and select the project directory.
 
--**Build and run** the app on your Android device or emulator.
+  3. -**Build and run** the app on your Android device or emulator.
 
 ## 🚀 Usage (Its no funtional ask me for the bd)
 
