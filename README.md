@@ -23,6 +23,10 @@
 
 🔗 [Click here to see it](https://www.figma.com/design/XsaaT2B75wHLrTj4oYum1H/Untitled?m=auto&t=WX0wfcTXMfSgKoHI-6)
 
+## 📹 Videos (Demo)
+
+🔗 [angular / web](https://youtu.be/HhkirC6MYrM)
+🔗 [android](https://youtube.com/shorts/DepXc8M8RQQ?si=hMa_m8VTDidsPwu4)
 
 ## 📦 Installation
 
