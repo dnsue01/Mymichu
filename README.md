@@ -23,6 +23,8 @@ Originally developed as a web application using Angular, it has been ported to A
 1. Clone the repository:
    ```bash
    git clone https://github.com/dnsue01/Mymichu.git
+   cd Mymichu
+   npm ng serve Mymichu
    ```
 
 ### Android
