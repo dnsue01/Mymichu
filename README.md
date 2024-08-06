@@ -6,16 +6,16 @@ Originally developed as a web application using Angular, it has been ported to A
 
 ## 📚 Technologies Used
 
-- **Angular**: A web application framework used to create the user interface and project logic.
-- **Java (Android)**: Incorporating Java for Android extends the project's compatibility and provides a complete user experience across web and mobile applications.
-- **SQL**: A structured query language used to interact with relational databases and store information.
-- **PHP**: A programming language used to develop server-side logic and process data within the project.
-- **Bootstrap**: A responsive web design framework used to create a modern and adaptable user interface.
-- **Capacitor**: A cross-platform development environment used to convert the web application into a mobile application using web technologies like Angular.
-- **SweetAlert**: A JavaScript library used to display customized alert messages and dialogs in the project.
-- **Chart.js**: A JavaScript library used to generate interactive charts and data visualizations in the project.
-- **YouTube API**: An application programming interface that allows access to and display of YouTube videos in the project.
-- **Angular Material**: An Angular library used to generate interactive components.
+- **Angular**: 
+- **Java (Android)**: 
+- **SQL**: 
+- **PHP**: 
+- **Bootstrap**: 
+- **Capacitor**:
+- **SweetAlert**:
+- **Chart.js**:
+- **YouTube API**: 
+- **Angular Material**
 
 ## 📦 Installation
 
