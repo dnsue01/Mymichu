@@ -19,6 +19,11 @@
 🔗**YouTube API** 
 🔗**Angular Material**
 
+## 💚 Figma (Early stage)
+
+🔗 [Click here to see it](https://www.figma.com/design/XsaaT2B75wHLrTj4oYum1H/Untitled?m=auto&t=WX0wfcTXMfSgKoHI-6)
+
+
 ## 📦 Installation
 
 ### 💻 Angular
