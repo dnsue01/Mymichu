@@ -31,7 +31,7 @@ Originally developed as a web application using Angular, it has been ported to A
 
 -**Open in Android Studio**:
 
--**Go to File **> Open and select the project directory.
+-**Go to File**> Open and select the project directory.
 
 -**Build and run** the app on your Android device or emulator.
 
