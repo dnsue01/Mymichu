@@ -35,7 +35,7 @@ Originally developed as a web application using Angular, it has been ported to A
 
 -**Build and run** the app on your Android device or emulator.
 
-##🚀 Usage (Its no funtional ask me for the bd)
+## 🚀 Usage (Its no funtional ask me for the bd)
 
 -Launch the app on your Android device.
 
