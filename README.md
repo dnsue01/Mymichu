@@ -50,4 +50,4 @@
 **SQL Database**: The application uses an SQL database to store user information, training sessions, performance metrics, and uploaded images.
 
 
-### Mymichu aims to optimize the coordination, planning, and information sharing among athletes, coaches, and administrators. Developed as a class project, it applies web and cross-platform application development expertise to create an efficient and practical tool for athletics management.
+
