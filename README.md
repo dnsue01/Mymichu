@@ -6,7 +6,7 @@
 
 -Originally developed as a web application using Angular, it has been ported to Android using Capacitor to maintain consistent functionality across platforms.
 
-## 📚 Technologies Used
+## 🛠 Technologies Used
 
 
 🔗 **[Angular](https://angular.io)**
@@ -60,4 +60,6 @@
 **SQL Database**: The application uses an SQL database to store user information, training sessions, performance metrics, and uploaded images.
 
 
+## 📚 Docu (Spanish)
 
+🔗 [Click here to see it](https://www.figma.com/design/XsaaT2B75wHLrTj4oYum1H/Untitled?m=auto&t=WX0wfcTXMfSgKoHI-6)
